@@ -1,3 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+}
 body{
 	background-color:white;
+	display: block;
+	margin: 0px;
+    padding: 0px;
+    border-width: 0px;
+	min-width: 960px;
+	font-family:Verdana;
+}
+header{
+	display: block;
+	width:960px;
+	margin-left:auto;
+	margin-right:auto;
+}
+#oblaky{
+	display: block;
+	max-width:1239px;
+	position:absolute;
+	left: 50%;
+	transform: translatex(-50%);
+}
+#logo{
+	display: block;
+	max-width:976px;
+	position:absolute;
+	top:0;
+	padding-top:94px;
+	left:50%;
+	transform: translatex(-50%);
+}
+#uvod_nadpis{
+	padding-top: 270px;
+	max-width:500px;
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+	font-size:16pt;
+}
+#uvod{
+	padding-top:20px;
+	max-width:794px;
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+	font-size:14pt;
+	font-weight: normal;
+}
+#buttons{
+	display: block;
+	width:436px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:57px;
+}
+#main_text, #kronika{
+	border: none;
+	background-color: #0050ff;
+	height:29px;
+	width:218px;
+	border-radius: 5px 0px 0px 5px;
+	color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+	transition: background-color 0.2s ease;
+}
+#kronika{
+	background-color: #e5e5e5;
+	border-radius: 0px 5px 5px 0px;
+	color: black;
+}
+#kronika:hover{
+	background-color: #CCCCCC;
 }
