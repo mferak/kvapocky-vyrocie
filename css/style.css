@@ -9,7 +9,7 @@ body{
     padding: 0px;
     border-width: 0px;
 	min-width: 960px;
-	font-family:Verdana;
+	font-family:'doko_sans';
 }
 header{
 	display: block;
@@ -39,7 +39,8 @@ header{
 	margin-left:auto;
 	margin-right:auto;
 	text-align:center;
-	font-size:16pt;
+	font-size:24pt;
+	font-weight:bold;
 }
 #uvod{
 	padding-top:20px;
@@ -47,35 +48,50 @@ header{
 	margin-left:auto;
 	margin-right:auto;
 	text-align:center;
-	font-size:14pt;
+	font-size:22pt;
 	font-weight: normal;
 }
 #buttons{
-	display: block;
+	display:block;
 	width:436px;
+	height:29px;
+	overflow:hidden;
 	margin-left:auto;
 	margin-right:auto;
 	margin-top:57px;
+	border-radius:5px;
+	background-color: #E5E5E5;
+	transition: background-color 0.2s ease;
+	position: relative;
 }
 #main_text, #kronika{
 	border: none;
-	background-color: #0050ff;
-	height:29px;
 	width:218px;
-	border-radius: 5px 0px 0px 5px;
+	position:relative;
+	top:0px;
 	color: white;
     text-align: center;
-    text-decoration: none;
     display: inline-block;
+	margin-top:2px;
     font-size: 16px;
     cursor: pointer;
-	transition: background-color 0.2s ease;
+	font-size:14pt;
+	font-weight: normal;
+	font-family:'doko_sans';
+	text-transform:uppercase;
 }
 #kronika{
-	background-color: #e5e5e5;
 	border-radius: 0px 5px 5px 0px;
 	color: black;
 }
-#kronika:hover{
+#buttons:hover{
 	background-color: #CCCCCC;
+}
+#pozadie{
+	background-color: #0050ff;
+	width:218px;
+	height:29px;
+	position:absolute;
+	top:0px;
+	left:0px;
 }
