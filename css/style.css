@@ -8,12 +8,36 @@ body{
 	margin: 0px;
     padding: 0px;
     border-width: 0px;
-	min-width: 960px;
+	width: 100%;
 	font-family:'doko_sans';
+}
+h1{
+	font-size:24pt;
+	font-weight:bold;
+}
+h2{
+	font-size:22pt;
+	font-weight: normal;
+}
+h3{
+	font-size:20pt;
+	font-weight: bold;
+	margin-bottom:10px;
+}
+ul{
+	padding-left:40px;
+}
+li{
+	font-size:18pt;
+	margin:10px 0px 10px 0px;
+}
+p{
+	font-size:18pt;
+	margin:10px 0px 10px 0px;
 }
 header{
 	display: block;
-	width:960px;
+	max-width:960px;
 	margin-left:auto;
 	margin-right:auto;
 }
@@ -21,6 +45,7 @@ header{
 	display: block;
 	max-width:1239px;
 	position:absolute;
+	top:0;
 	left: 50%;
 	transform: translatex(-50%);
 }
@@ -30,7 +55,7 @@ header{
 	position:absolute;
 	top:0;
 	padding-top:94px;
-	left:50%;
+	left: 50%;
 	transform: translatex(-50%);
 }
 #uvod_nadpis{
@@ -39,8 +64,7 @@ header{
 	margin-left:auto;
 	margin-right:auto;
 	text-align:center;
-	font-size:24pt;
-	font-weight:bold;
+	
 }
 #uvod{
 	padding-top:20px;
@@ -48,8 +72,7 @@ header{
 	margin-left:auto;
 	margin-right:auto;
 	text-align:center;
-	font-size:22pt;
-	font-weight: normal;
+	
 }
 #buttons{
 	display:block;
@@ -67,24 +90,49 @@ header{
 #main_text, #kronika{
 	border: none;
 	width:218px;
+	height:29px;
 	position:relative;
 	top:0px;
-	color: white;
     text-align: center;
     display: inline-block;
-	margin-top:2px;
+	padding-top:3px;
     font-size: 16px;
     cursor: pointer;
 	font-size:14pt;
 	font-weight: normal;
 	font-family:'doko_sans';
 	text-transform:uppercase;
+	transition: background-color 0.1s, color 0.1s;
+	
 }
-#kronika{
-	border-radius: 0px 5px 5px 0px;
-	color: black;
+.buttonActive{
+	background-color: #0050ff;
+	color:white;
 }
-#buttons:hover{
+#content{
+	display: block;
+	max-width:960px;
+	margin-left:auto;
+	margin-right:auto;
+}
+.obdobia_uvody{
+	max-width:750px;
+	margin-top:32px;
+}
+.rok{
+	margin-top:10px;
+	display: inline-block;
+	font-size:24pt;
+	font-weight: normal;
+	text-decoration: none;
+	padding-bottom:10px;
+	border-bottom: 3px solid #0050ff;
+}
+.info{
+	max-width:450px;
+	margin-top:50px;
+}
+/*#buttons:hover{
 	background-color: #CCCCCC;
 }
 #pozadie{
@@ -94,4 +142,4 @@ header{
 	position:absolute;
 	top:0px;
 	left:0px;
-}
+}*/
