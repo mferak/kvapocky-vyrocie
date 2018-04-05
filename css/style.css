@@ -125,6 +125,10 @@ header{
 	margin-left:auto;
 	margin-right:auto;
 }
+.buttonActive{
+	background-color: #0050ff;
+	color:white;
+}
 .obdobia_uvody{
 	max-width:750px;
 	margin-top:32px;
@@ -157,10 +161,7 @@ header{
 	float:left;
 }
 /*
-.buttonActive{
-	background-color: #0050ff;
-	color:white;
-}
+
 #buttons:hover{
 	background-color: #CCCCCC;
 }
