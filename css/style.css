@@ -35,6 +35,20 @@ p{
 	font-size:18pt;
 	margin:10px 0px 10px 0px;
 }
+i p {
+	padding-left: 1.5em;
+    text-indent:-1.5em;
+}
+article{
+	display:block;
+	margin:50px 0px 50px 0px;
+}
+article h3 {
+	display: inline;
+}
+article h1{
+	margin-bottom:12px;
+}
 header{
 	display: block;
 	max-width:960px;
@@ -105,10 +119,6 @@ header{
 	transition: background-color 0.1s, color 0.1s;
 	
 }
-.buttonActive{
-	background-color: #0050ff;
-	color:white;
-}
 #content{
 	display: block;
 	max-width:960px;
@@ -132,7 +142,26 @@ header{
 	max-width:450px;
 	margin-top:50px;
 }
-/*#buttons:hover{
+.info p{
+	text-align: justify;
+}
+.articles{
+	max-width:450px;
+}
+.round{
+	width:90px;
+	border-radius:50%;
+	display: inline;
+    position: relative;
+    left: -10px;
+	float:left;
+}
+/*
+.buttonActive{
+	background-color: #0050ff;
+	color:white;
+}
+#buttons:hover{
 	background-color: #CCCCCC;
 }
 #pozadie{
