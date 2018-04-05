@@ -13,7 +13,7 @@ body{
 }
 h1{
 	font-size:24pt;
-	font-weight:bold;
+	font-family:'doko_sansblack';
 }
 h2{
 	font-size:22pt;
@@ -21,7 +21,7 @@ h2{
 }
 h3{
 	font-size:20pt;
-	font-weight: bold;
+	font-family:'doko_sansblack';
 	margin-bottom:10px;
 }
 ul{
@@ -145,9 +145,6 @@ header{
 .info{
 	max-width:450px;
 	margin-top:50px;
-}
-.info p{
-	text-align: justify;
 }
 .articles{
 	max-width:450px;
