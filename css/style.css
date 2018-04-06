@@ -157,6 +157,9 @@ header{
     left: -10px;
 	float:left;
 }
+.no-wrap{
+	white-space: nowrap;
+}
 /*
 
 #buttons:hover{
