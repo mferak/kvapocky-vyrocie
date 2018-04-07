@@ -116,6 +116,8 @@ header{
 	font-weight: normal;
 	font-family:'doko_sans';
 	text-transform:uppercase;
+	text-decoration:none;
+	color:black;
 	transition: background-color 0.1s, color 0.1s;
 	
 }
@@ -127,7 +129,7 @@ header{
 }
 .buttonActive{
 	background-color: #0050ff;
-	color:white;
+	color:white !important; 
 }
 .obdobia_uvody{
 	max-width:750px;
