@@ -53,6 +53,41 @@ window.scrollBy({ //smooth scroll
   left: 0, 
   behavior: 'smooth' 
 });*/
+$("#buttons a").click(function(evt) {
+	evt.preventDefault();//pouzit return false ked nefunguje
+	var adresa = $(this).attr("href");
+	$("#bs-example-navbar-collapse-1 ul li").each(function() {
+		$(this).removeClass("active");
+	});
+	$(this).parent("li").addClass("active");
+	document.title = $(this).text();
+	history.pushState("", "", adresa);
+	$("#obsah").fadeOut(300, function() {
+		$("#obsah").load(adresa+" #obsah",function(){
+			$(this).delay(100).fadeIn(function(){
+				$('.carousel').carousel();
+			});
+		});		
+	});
+});
+$(window).on("popstate", function() {
+	var pos = location.pathname.lastIndexOf("/");
+	var adresa = location.pathname.substr(pos+1);
+	Pace.restart();
+	$("#obsah").fadeOut(300, function() {
+		$("#obsah").load(adresa+" #obsah").fadeIn(function(){
+			$('.carousel').carousel();
+		});
+	});
+	$("#bs-example-navbar-collapse-1 ul li").each(function() {
+		$(this).removeClass("active");
+		$(document.activeElement).blur();
+		if ($(this).children("a").attr("href")== adresa){
+			$(this).addClass("active");
+			document.title = $(this).text();
+		}
+	});
+});
 $('a[href*="#"]')
 	// Remove links that don't actually link to anything
 	.not('[href="#"]')
