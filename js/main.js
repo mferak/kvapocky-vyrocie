@@ -53,19 +53,17 @@ window.scrollBy({ //smooth scroll
   left: 0, 
   behavior: 'smooth' 
 });*/
+/* kaslat na ajax nejde to
 $("#buttons a").click(function(evt) {
 	evt.preventDefault();//pouzit return false ked nefunguje
 	var adresa = $(this).attr("href");
-	$("#bs-example-navbar-collapse-1 ul li").each(function() {
-		$(this).removeClass("active");
-	});
-	$(this).parent("li").addClass("active");
-	document.title = $(this).text();
-	history.pushState("", "", adresa);
-	$("#obsah").fadeOut(300, function() {
-		$("#obsah").load(adresa+" #obsah",function(){
+	
+	//document.title = $(this).text();
+	//history.pushState("", "", adresa);
+	$("#content").fadeOut(300, function() {
+		$("#content").load(adresa+"#content",function(){
 			$(this).delay(100).fadeIn(function(){
-				$('.carousel').carousel();
+				console.log(adresa+"#content");
 			});
 		});		
 	});
@@ -73,19 +71,22 @@ $("#buttons a").click(function(evt) {
 $(window).on("popstate", function() {
 	var pos = location.pathname.lastIndexOf("/");
 	var adresa = location.pathname.substr(pos+1);
-	Pace.restart();
-	$("#obsah").fadeOut(300, function() {
-		$("#obsah").load(adresa+" #obsah").fadeIn(function(){
-			$('.carousel').carousel();
+	console.log(adresa+"bleeeh");
+	//Pace.restart();
+	$("#content").fadeOut(300, function() {
+		$("#content").load(adresa+"#content").fadeIn(function(){
+			
 		});
 	});
-	$("#bs-example-navbar-collapse-1 ul li").each(function() {
-		$(this).removeClass("active");
-		$(document.activeElement).blur();
-		if ($(this).children("a").attr("href")== adresa){
-			$(this).addClass("active");
-			document.title = $(this).text();
-		}
+}); */
+$("#kronika").click(function(evt) {
+	$("#content").fadeOut(300, function() {
+		$("#kronos").fadeIn(300);
+	});
+});
+$("#main_text").click(function(evt) {
+	$("#kronos").fadeOut(300, function() {
+		$("#content").fadeIn(300);
 	});
 });
 $('a[href*="#"]')
