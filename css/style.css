@@ -206,7 +206,7 @@ header{
 	white-space: nowrap;
 }
 .gallery a img{
-	max-width:960px;
+	width:960px;
 	padding:10px;
 }
 .sticky {

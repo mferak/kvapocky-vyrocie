@@ -79,6 +79,7 @@ $(window).on("popstate", function() {
 		});
 	});
 }); */
+lazyload();
 var lb1 = $('.gallery a').simpleLightbox( {rel: 'kronikaObdobie1'} );
 var lb2 = $('.gallery a').simpleLightbox( {rel: 'kronikaObdobie2'});
 
