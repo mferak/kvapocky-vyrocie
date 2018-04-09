@@ -79,6 +79,23 @@ $(window).on("popstate", function() {
 		});
 	});
 }); */
+var lb1 = $('.gallery a').simpleLightbox( {rel: 'kronikaObdobie1'} );
+var lb2 = $('.gallery a').simpleLightbox( {rel: 'kronikaObdobie2'});
+
+window.onscroll = function() {stick()};
+var tlacitka = $('#buttons');
+var sticky = document.getElementById("buttons").offsetTop;
+function stick() {
+	console.log(sticky+" "+(window.pageYOffset-25));
+	if (window.pageYOffset+25 >= sticky) {
+		$('#buttonsHidden').show();
+		$('#buttons').addClass("sticky");
+	}else{
+		$('#buttonsHidden').hide();
+		$('#buttons').removeClass("sticky");
+	}
+}
+
 $("#kronika").click(function(evt) {
 	$("#content").fadeOut(300, function() {
 		$("#kronos").fadeIn(300);
@@ -89,6 +106,7 @@ $("#main_text").click(function(evt) {
 		$("#content").fadeIn(300);
 	});
 });
+
 $('a[href*="#"]')
 	// Remove links that don't actually link to anything
 	.not('[href="#"]')

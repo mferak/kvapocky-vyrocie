@@ -43,6 +43,9 @@ i p {
 	padding-left: 1.5em;
     text-indent:-1.5em;
 }
+iframe{
+	z-index:-1;
+}
 article{
 	display:block;
 	margin:50px 0px 50px 0px;
@@ -103,6 +106,20 @@ header{
 	border-radius:5px;
 	background-color: #E5E5E5;
 	transition: background-color 0.2s ease;
+	z-index:2;
+	position: sticky;
+	position: -webkit-sticky;
+    top: 25px;
+	/*position:relative;*/
+}
+#buttonsHidden{
+	display:none;
+	width:436px;
+	height:29px;
+	overflow:hidden;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:57px;
 	position: relative;
 }
 #main_text, #kronika{
@@ -154,13 +171,14 @@ header{
 }
 .rok{
 	margin-top:10px;
-	display: inline-block;
+	display: block;
 	font-size:28px; 
 	letter-spacing: 0.02em;
 	font-weight: normal;
 	text-decoration: none;
 	padding-bottom:10px;
 	border-bottom: 3px solid #0050ff;
+	width:138px;
 }
 .info{
 	max-width:450px;
@@ -168,6 +186,13 @@ header{
 }
 .articles{
 	max-width:450px;
+	display:inline-block;
+	float:left;
+}
+.media{
+	max-width:510px;
+	display:inline;
+	float:right;
 }
 .round{
 	width:90px;
@@ -179,6 +204,18 @@ header{
 }
 .no-wrap{
 	white-space: nowrap;
+}
+.gallery a img{
+	max-width:960px;
+	padding:10px;
+}
+.sticky {
+	position: fixed !important;
+	margin-top:25px !important;
+	top: 0;
+	left: 50%;
+	transform: translatex(-50%);
+	z-index:2;
 }
 /*
 
