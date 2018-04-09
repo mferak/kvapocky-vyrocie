@@ -107,10 +107,10 @@ header{
 	background-color: #E5E5E5;
 	transition: background-color 0.2s ease;
 	z-index:2;
-	position: sticky;
+	/*position: sticky;
 	position: -webkit-sticky;
-    top: 25px;
-	/*position:relative;*/
+    top: 25px;*/
+	position:relative;
 }
 #buttonsHidden{
 	display:none;

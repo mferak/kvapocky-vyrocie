@@ -82,7 +82,9 @@ $(window).on("popstate", function() {
 var lb1 = $('.gallery a').simpleLightbox( {rel: 'kronikaObdobie1'} );
 var lb2 = $('.gallery a').simpleLightbox( {rel: 'kronikaObdobie2'});
 
-window.onscroll = function() {stick()};
+$("#buttons").stick_in_parent();
+
+/*window.onscroll = function() {stick()};
 var tlacitka = $('#buttons');
 var sticky = document.getElementById("buttons").offsetTop;
 function stick() {
@@ -94,7 +96,7 @@ function stick() {
 		$('#buttonsHidden').hide();
 		$('#buttons').removeClass("sticky");
 	}
-}
+}*/
 
 $("#kronika").click(function(evt) {
 	$("#content").fadeOut(300, function() {
