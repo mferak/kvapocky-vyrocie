@@ -18,7 +18,7 @@ $.fn.simpleLightbox = function( options )
 		navText: ['&lsaquo;', '&rsaquo;'],
 		captions: true,
 		captionDelay: 0,
-		captionSelector: 'img',
+		captionSelector: 'self',
 		captionType: 'attr',
 		captionsData: 'title',
 		captionPosition: 'bottom',

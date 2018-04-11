@@ -180,6 +180,11 @@ header{
 	border-bottom: 3px solid #0050ff;
 	width:138px;
 }
+.small{
+	font-size:14px; 
+	line-height: initial;
+	margin:10px 0px 10px 0px;
+}
 .info{
 	max-width:450px;
 	margin-top:50px;
