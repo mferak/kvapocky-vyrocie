@@ -204,8 +204,16 @@ header{
 	border-radius:50%;
 	display: inline;
     position: relative;
-    left: -10px;
+    left: -30px;
 	float:left;
+}
+.middle{
+	display: table-cell;
+	height:90px;
+	vertical-align:middle;
+}
+.rozpravac{
+	margin-bottom:12px;
 }
 .no-wrap{
 	white-space: nowrap;
