@@ -161,6 +161,40 @@ header{
 	letter-spacing: 0.02em;
 	font-family:'doko_sansblack';
 }
+#os{
+	display: block;
+    float: left;
+    width: 42px;
+    position: absolute;
+    right: 15%;
+    top: 50px;
+	align-content:center;
+}
+#os span{
+	font-size:24px; 
+	letter-spacing: 0.01em;
+	font-weight: normal;
+	text-decoration: none;
+	color:#e6e6e6;
+	transition:color 0.2s;
+}
+.rokyOs a{
+	text-decoration:none;
+}
+.rokyOs{
+	margin-bottom:10px;
+	
+}
+.colour span{
+	color:black !important;
+}
+.colour .rokHor{
+	border-bottom: 3px solid #0050ff !important;
+}
+.rokHor{
+	border-bottom: 3px solid #e6e6e6;
+	transition:border-bottom 0.2s;
+}
 .buttonActive{
 	background-color: #0050ff;
 	color:white !important; 

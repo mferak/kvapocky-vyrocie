@@ -83,7 +83,8 @@ lazyload();
 var lb1 = $('.gallery a').simpleLightbox( {rel: 'kronikaObdobie1'} );
 var lb2 = $('.gallery a').simpleLightbox( {rel: 'kronikaObdobie2'});
 
-$("#buttons").stick_in_parent();
+$('#buttons').stick_in_parent();
+$('#os').stick_in_parent();
 
 /*window.onscroll = function() {stick()};
 var tlacitka = $('#buttons');
@@ -98,7 +99,17 @@ function stick() {
 		$('#buttons').removeClass("sticky");
 	}
 }*/
-
+var porad=1;
+$(function(){
+	$(window).scroll(function() {
+		console.log("boohoo");
+		if($('#obdobie_'+porad).offsetTop() => $('html, body').offsetTop()){
+			$('colour').removeClass('colour');
+			$('a[href="#"obdobie_'+porad+']').addClass('.colour');
+			porad++;
+		}
+	});
+});
 $("#kronika").click(function(evt) {
 	$("#content").fadeOut(300, function() {
 		$("#kronos").fadeIn(300);
@@ -125,6 +136,8 @@ $('a[href*="#"]')
 		if (target.length) {
 			// Only prevent default if animation is actually gonna happen
 			event.preventDefault();
+			$('.colour').removeClass('colour');
+			$(this).parent().addClass('colour');
 			$('html, body').animate({
 				scrollTop: target.offset().top
 			}, 1000, function() {
@@ -138,7 +151,7 @@ $('a[href*="#"]')
 				//	$target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
 				//	$target.focus(); // Set focus again
 				//};
-				window.location.hash = $linkElem.attr('href').substring(1);
+				//window.location.hash = $linkElem.attr('href').substring(1);
 			});
 		}
     }
