@@ -37,8 +37,8 @@ $.fn.simpleLightbox = function( options )
 		docClose: true,
 		swipeTolerance: 50,
 		className: 'simple-lightbox',
-		widthRatio: 0.95,
-		heightRatio: 0.98,
+		widthRatio: 0.8,
+		heightRatio: 0.9,
 		disableRightClick: false,
 		disableScroll: true,
 		alertError: true,
@@ -63,6 +63,7 @@ $.fn.simpleLightbox = function( options )
 		},
 		swipeDiff = 0,
 		swipeYDiff = 0,
+		zoom = false,
 		curImg = $(),
 		transPrefix = function(){
 			var s = document.body || document.documentElement;
@@ -222,7 +223,7 @@ $.fn.simpleLightbox = function( options )
 				}
 				var imageWidth	 = tmpImage.width,
 					imageHeight	 = tmpImage.height;
-
+					
 				if( imageWidth > windowWidth || imageHeight > windowHeight ){
 					var ratio	 = imageWidth / imageHeight > windowWidth / windowHeight ? imageWidth / windowWidth : imageHeight / windowHeight;
 					imageWidth	/= ratio;
@@ -231,8 +232,11 @@ $.fn.simpleLightbox = function( options )
 
 				$('.sl-image').css({
 					'top':    ( $( window ).height() - imageHeight ) / 2 + 'px',
-					'left':   ( $( window ).width() - imageWidth - globalScrollbarwidth)/ 2 + 'px'
-				});
+					'left':   ( $( window ).width() - imageWidth - globalScrollbarwidth)/ 2 + 'px',
+					'width':  imageWidth + 'px',
+					'height': imageHeight + 'px',
+					'overflow':'hidden'
+				}).addClass("zoom");
 				spinner.hide();
 				curImg
 				.css({
@@ -325,7 +329,6 @@ $.fn.simpleLightbox = function( options )
 				swipeDiff = 0;
 				loadImage( $(this).hasClass('sl-next') ? 1 : -1 );
 			});
-
 			// touchcontrols
 			var swipeStart	 = 0,
 				swipeEnd	 = 0,
@@ -382,12 +385,64 @@ $.fn.simpleLightbox = function( options )
 					}
 				}
 			});
+			//zoom
+			curImg.on('mousemove',function(){
+				if(!zoom){
+					console.log("zoomin");
+					curImg.css({
+						'cursor':'-webkit-zoom-in'
+					});
+				}else if(zoom){
+					console.log("zoomout");
+					curImg.css({
+						'cursor':'-webkit-zoom-out'
+					});
+				}
+			});
+			curImg.on('click',function(e){
+				if(!zoom){
+					zoom=true;
+					$(this).css({
+						'width': 'initial',
+						'height':'initial',
+						'position':'absolute',
+						'cursor':'-webkit-zoom-out'
+					});
+					var iHeight=$(this).height();
+					var iWidth= $(this).width();
+					var pHeight=$(this).parent().height();
+					var pWidth= $(this).parent().width();
+					var pPosx=$(this).parent().position().left;
+					var pPosy=$(this).parent().position().top;
+					$(this).css({
+							'top': (e.clientY-pPosy)*((iHeight-pHeight)/pHeight)*-1,
+							'left': (e.clientX-pPosx)*((iWidth-pWidth)/pWidth)*-1
+						})
+					$(this).parent().on('mousemove',function(e){
+						curImg.css({
+							'top': (e.clientY-pPosy)*((iHeight-pHeight)/pHeight)*-1,
+							'left': (e.clientX-pPosx)*((iWidth-pWidth)/pWidth)*-1
+						})
+					});
+				}else if (zoom){
+					
+					zoom=false;
+					$(this).css({
+						'width': $(this).parent().width(),
+						'height':$(this).parent().height(),
+						'position':'initial',
+						'cursor':'-webkit-zoom-in'
+					});
+				}
+			});
 		},
 		removeEvents = function(){
 			nav.off('click', 'button');
 			$( document ).off('click.'+prefix, '.sl-close');
 			$( window ).off( 'resize.'+prefix);
 			$( window ).off( 'hashchange.'+prefix);
+			curImg.off('click');
+			curImg.off('mousemove');
 		},
 		preload = function(){
 			var next = (index+1 < 0) ? objects.length -1: (index+1 >= objects.length -1) ? 0 : index+1,
@@ -407,6 +462,13 @@ $.fn.simpleLightbox = function( options )
 
 		},
 		loadImage = function(dir){
+			zoom=false;
+			curImg.css({
+				'width': $(this).parent().width(),
+				'height':$(this).parent().height(),
+				'position':'initial',
+				'cursor':'-webkit-zoom-in'
+			});
 			objects.eq(index)
 			.trigger($.Event('change.simplelightbox'))
 			.trigger($.Event( (dir===1?'next':'prev')+'.simplelightbox'));
