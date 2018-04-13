@@ -84,7 +84,7 @@ var lb1 = $('.gallery a').simpleLightbox( {rel: 'kronikaObdobie1'} );
 var lb2 = $('.gallery a').simpleLightbox( {rel: 'kronikaObdobie2'});
 
 $('#buttons').stick_in_parent();
-$('#os').stick_in_parent();
+//$('#os').stick_in_parent();
 
 /*window.onscroll = function() {stick()};
 var tlacitka = $('#buttons');
@@ -100,14 +100,35 @@ function stick() {
 	}
 }*/
 var porad=1;
+var pred=porad-1;
+var obdob=0;
 $(function(){
 	$(window).scroll(function() {
-		console.log("boohoo");
-		if($('#obdobie_'+porad).offsetTop() => $('html, body').offsetTop()){
-			$('colour').removeClass('colour');
-			$('a[href="#"obdobie_'+porad+']').addClass('.colour');
-			porad++;
+		var stran=$(document).scrollTop();
+		if($('#obdobie_'+porad).length){
+			obdob=$('#obdobie_'+porad).offset().top;
+		}else{
+			obdob=stran+1;
 		}
+		var prd=-10;
+		if ($('#obdobie_'+pred).length){
+			prd=$('#obdobie_'+pred).offset().top;
+		}
+		if (obdob <=stran ){
+			$('.colour').removeClass('colour');
+			$("a[href='#obdobie_"+porad+"']").addClass('colour');
+			porad++;
+			pred=porad-1;
+		}
+		if(prd >= stran){
+			porad--;
+			pred=porad-1;
+			if(pred>0){
+				$('.colour').removeClass('colour');
+				$("a[href='#obdobie_"+pred+"']").addClass('colour');
+			}
+		}
+		console.log(pred);
 	});
 });
 $("#kronika").click(function(evt) {

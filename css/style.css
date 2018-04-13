@@ -165,7 +165,7 @@ header{
 	display: block;
     float: left;
     width: 42px;
-    position: absolute;
+    position: fixed;
     right: 15%;
     top: 50px;
 	align-content:center;
