@@ -151,7 +151,10 @@ $(".playPauseBtn").on("click",function(){
 	playPauseAudio(player,btnPlayPause);
 	addListener(player,progressBar,btnPlayPause);
 	$(progres).on("mousedown",function(e){
-			seek(e,player,progressBar);
+		player=$(parent).find("#music");
+		progressBar=$(parent).find("#progress");
+		progres=$(parent).find("#progressText");
+		seek(e,player,progressBar);
 		$(this).on("mousemove",function(e){
 			seek(e,player,progressBar);
 		});
