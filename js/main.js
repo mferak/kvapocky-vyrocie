@@ -83,7 +83,7 @@ lazyload();
 var lb1 = $('.gallery a').simpleLightbox( {rel: 'kronikaObdobie1'} );
 var lb2 = $('.gallery a').simpleLightbox( {rel: 'kronikaObdobie2'});
 
-$('#buttons').stick_in_parent();
+$('#buttons').stick_in_parent({sticky_class:"sticky"});
 //$('#os').stick_in_parent();
 
 /*window.onscroll = function() {stick()};
@@ -99,38 +99,39 @@ function stick() {
 		$('#buttons').removeClass("sticky");
 	}
 }*/
-var porad=1;
-var pred=porad-1;
-var obdob=0;
-$(function(){
-	$(window).scroll(function() {
+var pred=1;
+var count=1;
+var current=1;
+var obdobia=[];
+var autoScrolling=false;
+var druhySet=false;
+$("obdobie_9").ready(function() {
+	for(var i=1;i<=9;i++){
+		obdobia[i]=$('#obdobie_'+i).offset().top;
+		console.log(obdobia[i]);
+	}
+});
+$(window).scroll(function() {
+	if (!autoScrolling){
 		var stran=$(document).scrollTop();
-		if($('#obdobie_'+porad).length){
-			obdob=$('#obdobie_'+porad).offset().top;
-		}else{
-			obdob=stran+1;
+		while(obdobia[count]<stran+10){
+			current=count;
+			count++;
+			
 		}
-		var prd=-10;
-		if ($('#obdobie_'+pred).length){
-			prd=$('#obdobie_'+pred).offset().top;
-		}
-		if (obdob <=stran ){
+		count=1;
+		if(current!=pred){
+			pred=current;
 			$('.colour').removeClass('colour');
-			$("a[href='#obdobie_"+porad+"']").addClass('colour');
-			porad++;
-			pred=porad-1;
-		}
-		if(prd >= stran){
-			porad--;
-			pred=porad-1;
-			if(pred>0){
-				$('.colour').removeClass('colour');
+			if(!druhySet){
 				$("a[href='#obdobie_"+pred+"']").addClass('colour');
+			}else{
+				$("a[href='#obdobie"+pred+"']").addClass('colour');
 			}
 		}
-		console.log(pred);
-	});
+	}
 });
+
 var player;
 var progressBar;
 var btnPlayPause;
@@ -213,11 +214,21 @@ function updateProgressBar(player,progressBar) {
 $("#kronika").click(function(evt) {
 	$("#content").fadeOut(300, function() {
 		$("#kronos").fadeIn(300);
+		druhySet=true;
+		for(var i=1;i<=9;i++){
+			obdobia[i]=$('#obdobie'+i).offset().top;
+			console.log(obdobia[i]);
+		}
 	});
 });
 $("#main_text").click(function(evt) {
 	$("#kronos").fadeOut(300, function() {
 		$("#content").fadeIn(300);
+		druhySet=false;
+		for(var i=1;i<=9;i++){
+			obdobia[i]=$('#obdobie_'+i).offset().top;
+			console.log(obdobia[i]);
+		}
 	});
 });
 
@@ -238,9 +249,11 @@ $('a[href*="#"]')
 			event.preventDefault();
 			$('.colour').removeClass('colour');
 			$(this).parent().addClass('colour');
+			autoScrolling=true;
 			$('html, body').animate({
 				scrollTop: target.offset().top
 			}, 1000, function() {
+				autoScrolling=false;
 				// Callback after animation
 				// Must change focus!
 				//var $target = $(target);

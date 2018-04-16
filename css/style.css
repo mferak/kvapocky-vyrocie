@@ -111,6 +111,7 @@ header{
 	position: -webkit-sticky;
     top: 25px;*/
 	position:relative;
+	transition: margin-top 0.2s;
 }
 #buttonsHidden{
 	display:none;
@@ -389,6 +390,13 @@ progress::-moz-progress-value {
 
 progress::-webkit-progress-bar {
   background: #0050ff;
+}
+.hudge{
+	display:block;
+	height:200px;
+	width:960px;
+	font-size: 30px;
+	font-weight:bold;
 }
 /*
 
