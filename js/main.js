@@ -131,6 +131,82 @@ $(function(){
 		console.log(pred);
 	});
 });
+var player;
+var progressBar;
+var btnPlayPause;
+$("#playery").on("click",function(){
+	player=$(this).find("#music");
+	progressBar=$(this).find("#progress");
+	btnPlayPause=$(this).find(".controls");
+	playPauseAudio(player,btnPlayPause);
+	addListener(player,progressBar);
+});
+
+$(".playPauseBtn").on("click",function(){
+	var parent= $(this).parent("#player")
+	btnPlayPause=$(this).find(".controls");
+	player=$(parent).find("#music");
+	progressBar=$(parent).find("#progress");
+	progres=$(parent).find("#progressText");
+	playPauseAudio(player,btnPlayPause);
+	addListener(player,progressBar,btnPlayPause);
+	$(progres).on("mousedown",function(e){
+			seek(e,player,progressBar);
+		$(this).on("mousemove",function(e){
+			seek(e,player,progressBar);
+		});
+	});
+	$(window).on("mouseup",function(){
+		//$(progres).off("mousedown");
+		$(progres).off("mousemove");
+	});
+	
+});
+function addListener(player,progressBar,btnPlayPause){
+	
+	player[0].addEventListener('timeupdate', updateProgressBar(player,progressBar), false);
+	
+	if(!player[0].paused){
+		timer= setTimeout("addListener(player,progressBar,btnPlayPause);",500);
+	}else if(player[0].ended){
+		changeButtonType(btnPlayPause, 'play');
+	}
+}
+function seek(e,player,progressBar) {
+	
+	if (player[0].src) {
+		var percent = e.offsetX / progressBar[0].offsetWidth;
+		player[0].currentTime = percent * player[0].duration;
+		progressBar.val(Math.floor(percent*1000));
+		//progressBar.innerHTML = progressBar.value + '% played';
+	}
+}
+function playPauseAudio(player,btnPlayPause) {
+
+	if(player[0].src){
+		if (player[0].paused) {
+			// Change the button to a pause button
+			changeButtonType(btnPlayPause, 'pause');
+			player[0].play();
+		} else {
+			// Change the button to a play button
+			changeButtonType(btnPlayPause, 'play');
+			player[0].pause();
+		}
+	}
+}
+function changeButtonType(btn, value) {
+	
+	btn.attr('src',"Images/Icons/"+value+".svg");
+}
+function updateProgressBar(player,progressBar) {
+  // Work out how much of the media has played via the duration and currentTime parameters
+  var percentage = Math.floor((1000 / player[0].duration) * player[0].currentTime);
+  // Update the progress bar's value
+  progressBar.val(percentage);
+  // Update the progress bar's text (for browsers that don't support the progress element)
+  //progressBar.innerHTML = progressBar.title = percentage + '% played';
+}
 $("#kronika").click(function(evt) {
 	$("#content").fadeOut(300, function() {
 		$("#kronos").fadeIn(300);
