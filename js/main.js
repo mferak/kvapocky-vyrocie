@@ -108,27 +108,20 @@ var druhySet=false;
 $("obdobie_9").ready(function() {
 	for(var i=1;i<=9;i++){
 		obdobia[i]=$('#obdobie_'+i).offset().top;
-		
 	}
-	console.log("robim sa ze sa robim");
 });
 $(window).scroll(function() {
 	if (!autoScrolling){
 		var stran=$(document).scrollTop();
-		while(obdobia[count]<=stran+10){
+		while(obdobia[count]<=stran+110){
 			current=count;
-			count++;
-			
+			count++;	
 		}
 		count=1;
 		if(current!=pred){
 			pred=current;
 			$('.colour').removeClass('colour');
-			if(!druhySet){
-				$("a[href='#obdobie_"+pred+"']").addClass('colour');
-			}else{
-				$("a[href='#obdobie"+pred+"']").addClass('colour');
-			}
+			$("a[href='#obdobie_"+pred+"']").addClass('colour');
 		}
 	}
 });
@@ -219,13 +212,13 @@ $("#kronika").click(function(evt) {
 			for(var i=1;i<=9;i++){
 				obdobia[i]=$('#obdobie'+i).offset().top;
 				console.log(obdobia[i]);
-				autoScrolling=true;
-				$('html, body').animate({
-					scrollTop: $('#obdobie'+current).offset().top
-				}, 300, function() {
-					autoScrolling=false;
-				});
 			}
+			autoScrolling=true;
+			$('html, body').animate({
+				scrollTop: $('#obdobie'+current).offset().top
+			}, 300, function() {
+				autoScrolling=false;
+			});
 		});
 	});
 });
@@ -236,13 +229,13 @@ $("#main_text").click(function(evt) {
 			for(var i=1;i<=9;i++){
 				obdobia[i]=$('#obdobie_'+i).offset().top;
 				console.log(obdobia[i]);
-				autoScrolling=true;
-				$('html, body').animate({
-					scrollTop: $('#obdobie_'+current).offset().top
-				}, 300, function() {
-					autoScrolling=false;
-				});
 			}
+			autoScrolling=true;
+			$('html, body').animate({
+				scrollTop: $('#obdobie_'+current).offset().top
+			}, 300, function() {
+				autoScrolling=false;
+			});
 		});
 	});
 });
@@ -272,7 +265,7 @@ $('a[href*="#"]')
 			$(this).parent().addClass('colour');
 			autoScrolling=true;
 			$('html, body').animate({
-				scrollTop: target.offset().top
+				scrollTop: target.offset().top-100
 			}, 1000, function() {
 				autoScrolling=false;
 				// Callback after animation
