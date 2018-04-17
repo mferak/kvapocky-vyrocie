@@ -108,13 +108,14 @@ var druhySet=false;
 $("obdobie_9").ready(function() {
 	for(var i=1;i<=9;i++){
 		obdobia[i]=$('#obdobie_'+i).offset().top;
-		console.log(obdobia[i]);
+		
 	}
+	console.log("robim sa ze sa robim");
 });
 $(window).scroll(function() {
 	if (!autoScrolling){
 		var stran=$(document).scrollTop();
-		while(obdobia[count]<stran+10){
+		while(obdobia[count]<=stran+10){
 			current=count;
 			count++;
 			
@@ -213,22 +214,36 @@ function updateProgressBar(player,progressBar) {
 }
 $("#kronika").click(function(evt) {
 	$("#content").fadeOut(300, function() {
-		$("#kronos").fadeIn(300);
-		druhySet=true;
-		for(var i=1;i<=9;i++){
-			obdobia[i]=$('#obdobie'+i).offset().top;
-			console.log(obdobia[i]);
-		}
+		$("#kronos").fadeIn(300, function() {
+			druhySet=true;
+			for(var i=1;i<=9;i++){
+				obdobia[i]=$('#obdobie'+i).offset().top;
+				console.log(obdobia[i]);
+				autoScrolling=true;
+				$('html, body').animate({
+					scrollTop: $('#obdobie'+current).offset().top
+				}, 300, function() {
+					autoScrolling=false;
+				});
+			}
+		});
 	});
 });
 $("#main_text").click(function(evt) {
 	$("#kronos").fadeOut(300, function() {
-		$("#content").fadeIn(300);
-		druhySet=false;
-		for(var i=1;i<=9;i++){
-			obdobia[i]=$('#obdobie_'+i).offset().top;
-			console.log(obdobia[i]);
-		}
+		$("#content").fadeIn(300, function() {
+			druhySet=false;
+			for(var i=1;i<=9;i++){
+				obdobia[i]=$('#obdobie_'+i).offset().top;
+				console.log(obdobia[i]);
+				autoScrolling=true;
+				$('html, body').animate({
+					scrollTop: $('#obdobie_'+current).offset().top
+				}, 300, function() {
+					autoScrolling=false;
+				});
+			}
+		});
 	});
 });
 
@@ -242,7 +257,13 @@ $('a[href*="#"]')
     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname){
 		// Figure out element to scroll to
 		var target = $(this.hash);
+		if (druhySet){
+			var novy=this.hash.replace("_","");
+			target=$(novy);
+		}
+		
 		target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+		
 		// Does a scroll target exist?
 		if (target.length) {
 			// Only prevent default if animation is actually gonna happen

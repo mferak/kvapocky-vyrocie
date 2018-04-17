@@ -305,8 +305,8 @@ header{
 	z-index:1;
 }
 #player{
-	display: inline;
-	padding: 6px 20px;
+	display: table;
+	padding: 6px 0px;
 	border-radius:17px;
 	background-color:transparent;
 	margin-left:auto;
@@ -320,7 +320,7 @@ header{
 	z-index:0;
 }
 #playery{
-	display: inline;
+	display: inline-block;
 	padding: 6px 20px;
 	border-radius:17px;
 	background-color:transparent;
@@ -358,7 +358,11 @@ header{
 	font-size:16px;
 	overflow:hidden;
 	z-index:0;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
 	user-select: none;
+	
 }
 #progress{
 	color: #003bbb;
@@ -373,24 +377,25 @@ header{
 	z-index:-1;
 }
 progress{
-  -webkit-appearance: none;
-  width: 100%;
+	-webkit-appearance: none;
+	width: 100%;
 }
 progress::-webkit-progress-value {
-  background: #003bbb;
+	background: #003bbb;
 }
-
-progress::-moz-progress-bar {
-  background: #0050ff;
-}
-
-progress::-moz-progress-value {
-  background: #003bbb;
-}
-
 progress::-webkit-progress-bar {
-  background: #0050ff;
+	background: #0050ff;
 }
+progress::-moz-progress-value {
+  background-color: #003bbb;
+}
+::-moz-progress-bar {
+	background-color: #003bbb;
+}
+::-ms-progress-value{
+	background-color: #003bbb;
+}
+
 .hudge{
 	display:block;
 	height:200px;

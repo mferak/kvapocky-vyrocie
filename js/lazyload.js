@@ -132,20 +132,20 @@
             if (!this.settings) { return; }
 
             let self = this;
-            this.images.forEach(function (image) {
-                let src = image.getAttribute(self.settings.src);
-                let srcset = image.getAttribute(self.settings.srcset);
-                if ("img" === image.tagName.toLowerCase()) {
+            for(var i=0;i<=this.images.length-1;i++){
+                let src = this.images[i].getAttribute(self.settings.src);
+                let srcset = this.images[i].getAttribute(self.settings.srcset);
+                if ("img" === this.images[i].tagName.toLowerCase()) {
                     if (src) {
-                        image.src = src;
+                        this.images[i].src = src;
                     }
                     if (srcset) {
-                        image.srcset = srcset;
+                        this.images[i].srcset = srcset;
                     }
                 } else {
-                    image.style.backgroundImage = "url(" + src + ")";
+                    this.images[i].style.backgroundImage = "url(" + src + ")";
                 }
-            });
+            }
         },
 
         destroy: function () {
