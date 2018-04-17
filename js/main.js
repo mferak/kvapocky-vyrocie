@@ -105,7 +105,7 @@ var current=1;
 var obdobia=[];
 var autoScrolling=false;
 var druhySet=false;
-$("obdobie_9").ready(function() {
+$("#obdobie_9").ready(function() {
 	for(var i=1;i<=9;i++){
 		obdobia[i]=$('#obdobie_'+i).offset().top;
 	}
@@ -214,7 +214,7 @@ $("#kronika").click(function(evt) {
 				obdobia[i]=$('#obdobie'+i).offset().top;
 				console.log(obdobia[i]);
 			}
-			autoScrolling=true;
+			// autoScrolling=true;
 			// $('html, body').animate({
 				// scrollTop: $('#obdobie'+current).offset().top-100
 			// }, 300,"easeOutsine", function() {
