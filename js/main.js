@@ -209,16 +209,17 @@ $("#kronika").click(function(evt) {
 	$("#content").fadeOut(300, function() {
 		$("#kronos").fadeIn(300, function() {
 			druhySet=true;
+			$('html, body').scrollTop($('#obdobie'+current).offset().top-100);
 			for(var i=1;i<=9;i++){
 				obdobia[i]=$('#obdobie'+i).offset().top;
 				console.log(obdobia[i]);
 			}
 			autoScrolling=true;
-			$('html, body').animate({
-				scrollTop: $('#obdobie'+current).offset().top
-			}, 300, function() {
-				autoScrolling=false;
-			});
+			// $('html, body').animate({
+				// scrollTop: $('#obdobie'+current).offset().top-100
+			// }, 300,"easeOutsine", function() {
+				// autoScrolling=false;
+			// });
 		});
 	});
 });
@@ -232,8 +233,8 @@ $("#main_text").click(function(evt) {
 			}
 			autoScrolling=true;
 			$('html, body').animate({
-				scrollTop: $('#obdobie_'+current).offset().top
-			}, 300, function() {
+				scrollTop: $('#obdobie_'+current).offset().top-100
+			}, 300,"easeOutSine", function() {
 				autoScrolling=false;
 			});
 		});
@@ -266,7 +267,7 @@ $('a[href*="#"]')
 			autoScrolling=true;
 			$('html, body').animate({
 				scrollTop: target.offset().top-100
-			}, 1000, function() {
+			}, 1000, "easeOutSine", function() {
 				autoScrolling=false;
 				// Callback after animation
 				// Must change focus!
