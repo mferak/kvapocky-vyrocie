@@ -80,7 +80,8 @@ $(window).on("popstate", function() {
 	});
 }); */
 lazyload();
-var lb1 = $('.gallery a').simpleLightbox( {rel: 'kronikaObdobie1'} );
+var lb = $('.alone').simpleLightbox({nav: 'false'});
+var lb1 = $('.gallery a').simpleLightbox( {rel: 'kronikaObdobie1'});
 var lb2 = $('.gallery a').simpleLightbox( {rel: 'kronikaObdobie2'});
 
 $('#buttons').stick_in_parent({sticky_class:"sticky"});
@@ -113,7 +114,7 @@ $("#obdobie_9").ready(function() {
 $(window).scroll(function() {
 	if (!autoScrolling){
 		var stran=$(document).scrollTop();
-		while(obdobia[count]<=stran+110){
+		while(obdobia[count]<=stran+150){
 			current=count;
 			count++;	
 		}
@@ -129,30 +130,42 @@ $(window).scroll(function() {
 var player;
 var progressBar;
 var btnPlayPause;
-$("#playery").on("click",function(){
-	player=$(this).find("#music");
-	progressBar=$(this).find("#progress");
-	btnPlayPause=$(this).find(".controls");
-	playPauseAudio(player,btnPlayPause);
-	addListener(player,progressBar);
-});
+// $("#playery").on("click",function(){
+	
+	// player=$(this).find("#music");
+	// progressBar=$(this).find("#progress");
+	// btnPlayPause=$(this).find(".controls");
+	// playPauseAudio(player,btnPlayPause);
+	// addListener(player,progressBar);
+// });
 
 $(".playPauseBtn").on("click",function(){
-	var parent= $(this).parent("#player")
+	if(player && !player[0].paused && player[0].src!=$(this).parent("#player").find("#music")[0].src){
+		$(progres).off("mousedown");
+		playPauseAudio(/*player,btnPlayPause*/);
+	}
+	
+	var parent= $(this).parent("#player");
 	btnPlayPause=$(this).find(".controls");
 	player=$(parent).find("#music");
 	progressBar=$(parent).find("#progress");
 	progres=$(parent).find("#progressText");
-	playPauseAudio(player,btnPlayPause);
-	addListener(player,progressBar,btnPlayPause);
+	playPauseAudio(/*player,btnPlayPause*/);
+	addListener(/*player,progressBar,btnPlayPause*/);
+	$(progres).off("mousedown");
 	$(progres).on("mousedown",function(e){
-		player=$(parent).find("#music");
-		progressBar=$(parent).find("#progress");
-		progres=$(parent).find("#progressText");
-		seek(e,player,progressBar);
-		$(this).on("mousemove",function(e){
-			seek(e,player,progressBar);
-		});
+		if(!player[0].paused && player[0].src!=$(progres).find("#music")[0].src){
+			//$(progres).off("mousedown");
+			console.log("gordon bennett");
+		}else{
+			player=$(parent).find("#music");
+			progressBar=$(parent).find("#progress");
+			progres=$(parent).find("#progressText");
+			seek(e/*,player,progressBar*/);
+			$(this).on("mousemove",function(e){
+				seek(e/*,player,progressBar*/);
+			});
+		}
 	});
 	$(window).on("mouseup",function(){
 		//$(progres).off("mousedown");
@@ -160,17 +173,18 @@ $(".playPauseBtn").on("click",function(){
 	});
 	
 });
-function addListener(player,progressBar,btnPlayPause){
-	
-	player[0].addEventListener('timeupdate', updateProgressBar(player,progressBar), false);
-	
-	if(!player[0].paused){
+function addListener(/*player,progressBar,btnPlayPause*/){
+	if(player!=null){
+		player[0].addEventListener('timeupdate', updateProgressBar(/*player,progressBar*/), false);
+	}
+	if(player!=null && !player[0].paused){
+		
 		timer= setTimeout("addListener(player,progressBar,btnPlayPause);",500);
-	}else if(player[0].ended){
-		changeButtonType(btnPlayPause, 'play');
+	}else if(player!=null && player[0].ended){
+		changeButtonType(/*btnPlayPause,*/ 'play');
 	}
 }
-function seek(e,player,progressBar) {
+function seek(e/*,player,progressBar*/) {
 	
 	if (player[0].src) {
 		var percent = e.offsetX / progressBar[0].offsetWidth;
@@ -179,25 +193,27 @@ function seek(e,player,progressBar) {
 		//progressBar.innerHTML = progressBar.value + '% played';
 	}
 }
-function playPauseAudio(player,btnPlayPause) {
-
+function playPauseAudio(/*player,btnPlayPause*/) {
 	if(player[0].src){
 		if (player[0].paused) {
 			// Change the button to a pause button
-			changeButtonType(btnPlayPause, 'pause');
+			changeButtonType(/*btnPlayPause,*/ 'pause');
 			player[0].play();
 		} else {
 			// Change the button to a play button
-			changeButtonType(btnPlayPause, 'play');
+			changeButtonType(/*btnPlayPause,*/ 'play');
 			player[0].pause();
+			//player=null;
+			//btnPlayPause=null;
+			//progressBar=null;
 		}
 	}
 }
-function changeButtonType(btn, value) {
+function changeButtonType(/*btn,*/ value) {
 	
-	btn.attr('src',"Images/Icons/"+value+".svg");
+	btnPlayPause.attr('src',"Images/Icons/"+value+".svg");
 }
-function updateProgressBar(player,progressBar) {
+function updateProgressBar(/*player,progressBar*/) {
   // Work out how much of the media has played via the duration and currentTime parameters
   var percentage = Math.floor((1000 / player[0].duration) * player[0].currentTime);
   // Update the progress bar's value
@@ -205,21 +221,21 @@ function updateProgressBar(player,progressBar) {
   // Update the progress bar's text (for browsers that don't support the progress element)
   //progressBar.innerHTML = progressBar.title = percentage + '% played';
 }
+
 $("#kronika").click(function(evt) {
 	$("#content").fadeOut(300, function() {
 		$("#kronos").fadeIn(300, function() {
 			druhySet=true;
-			$('html, body').scrollTop($('#obdobie'+current).offset().top-100);
 			for(var i=1;i<=9;i++){
 				obdobia[i]=$('#obdobie'+i).offset().top;
 				console.log(obdobia[i]);
 			}
-			// autoScrolling=true;
-			// $('html, body').animate({
-				// scrollTop: $('#obdobie'+current).offset().top-100
-			// }, 300,"easeOutsine", function() {
-				// autoScrolling=false;
-			// });
+			autoScrolling=true;
+			$('html, body').animate({
+				scrollTop: $('#obdobie'+current).offset().top-100
+			}, 300,"easeOutSine", function() {
+				autoScrolling=false;
+			});
 		});
 	});
 });

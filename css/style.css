@@ -15,15 +15,17 @@ h1{
 	font-size:28px; 
 	letter-spacing: 0.02em;
 	font-family:'doko_sansblack';
+	font-weight: normal;
 }
 h2{
 	font-size:24px;
 	font-weight: normal;
 }
 h3{
-	font-size: 20px; 
+	font-size: 22px; 
 	letter-spacing: 0.04em;
 	font-family:'doko_sansblack';
+	font-weight: normal;
 	margin-bottom:10px;
 }
 ul{
@@ -203,17 +205,18 @@ header{
 .obdobia_uvody{
 	max-width:750px;
 	margin-top:32px;
+	font-size:30px;
 }
 .rok{
 	margin-top:10px;
-	display: block;
+	display: inline-block;
 	font-size:28px; 
 	letter-spacing: 0.02em;
 	font-weight: normal;
 	text-decoration: none;
 	padding-bottom:10px;
 	border-bottom: 3px solid #0050ff;
-	width:138px;
+	/* width:138px; */
 }
 .small{
 	font-size:14px; 
