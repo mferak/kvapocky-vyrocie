@@ -253,6 +253,7 @@ header{
 	display: table-cell;
 	height:90px;
 	vertical-align:middle;
+	max-width:350px !important;
 }
 .rozpravac{
 	margin-bottom:12px;

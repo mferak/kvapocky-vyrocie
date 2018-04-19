@@ -173,6 +173,9 @@ body.hidden-scroll {
 			color: $sl-caption-color;
 			background: $sl-caption-background;
 			position: absolute;
+			margin:0px;		//
+			line-height:initial;//
+			font-size:16px;	//
 			bottom: 0;
 			left: 0;
 			right: 0;

@@ -176,10 +176,20 @@ body.hidden-scroll {
   padding: 10px;
   color: #fff;
   background: rgba(0, 0, 0, 0.8);
+  margin:0px;		
+  line-height:initial;
+  font-weight: normal;
+  font-family:'doko_sans';
+  font-size:16px;	
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
+  white-space: pre-wrap;
+  -moz-user-select: all;
+  -webkit-user-select: all;
+  -ms-user-select: all;
+  user-select: all;
 }
 /* line 180, ../sass/simplelightbox.scss */
 .sl-wrapper .sl-image .sl-caption.pos-top {
