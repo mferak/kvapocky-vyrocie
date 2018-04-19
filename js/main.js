@@ -130,62 +130,46 @@ $(window).scroll(function() {
 var player;
 var progressBar;
 var btnPlayPause;
-// $("#playery").on("click",function(){
-	
-	// player=$(this).find("#music");
-	// progressBar=$(this).find("#progress");
-	// btnPlayPause=$(this).find(".controls");
-	// playPauseAudio(player,btnPlayPause);
-	// addListener(player,progressBar);
-// });
 
 $(".playPauseBtn").on("click",function(){
 	if(player && !player[0].paused && player[0].src!=$(this).parent("#player").find("#music")[0].src){
-		$(progres).off("mousedown");
-		playPauseAudio(/*player,btnPlayPause*/);
+		playPauseAudio();
 	}
-	
 	var parent= $(this).parent("#player");
 	btnPlayPause=$(this).find(".controls");
 	player=$(parent).find("#music");
 	progressBar=$(parent).find("#progress");
 	progres=$(parent).find("#progressText");
-	playPauseAudio(/*player,btnPlayPause*/);
-	addListener(/*player,progressBar,btnPlayPause*/);
+	playPauseAudio();
+	addListener();
 	$(progres).off("mousedown");
 	$(progres).on("mousedown",function(e){
-		if(!player[0].paused && player[0].src!=$(progres).find("#music")[0].src){
-			//$(progres).off("mousedown");
-			console.log("gordon bennett");
+		if(!player[0].paused && player[0].src!=$(this).find("#music")[0].src){
 		}else{
 			player=$(parent).find("#music");
 			progressBar=$(parent).find("#progress");
 			progres=$(parent).find("#progressText");
-			seek(e/*,player,progressBar*/);
+			seek(e);
 			$(this).on("mousemove",function(e){
-				seek(e/*,player,progressBar*/);
+				seek(e);
 			});
 		}
 	});
 	$(window).on("mouseup",function(){
-		//$(progres).off("mousedown");
 		$(progres).off("mousemove");
 	});
-	
 });
-function addListener(/*player,progressBar,btnPlayPause*/){
+function addListener(){
 	if(player!=null){
-		player[0].addEventListener('timeupdate', updateProgressBar(/*player,progressBar*/), false);
+		player[0].addEventListener('timeupdate', updateProgressBar(), false);
 	}
 	if(player!=null && !player[0].paused){
-		
 		timer= setTimeout("addListener(player,progressBar,btnPlayPause);",500);
 	}else if(player!=null && player[0].ended){
-		changeButtonType(/*btnPlayPause,*/ 'play');
+		changeButtonType('play');
 	}
 }
-function seek(e/*,player,progressBar*/) {
-	
+function seek(e) {
 	if (player[0].src) {
 		var percent = e.offsetX / progressBar[0].offsetWidth;
 		player[0].currentTime = percent * player[0].duration;
@@ -193,27 +177,23 @@ function seek(e/*,player,progressBar*/) {
 		//progressBar.innerHTML = progressBar.value + '% played';
 	}
 }
-function playPauseAudio(/*player,btnPlayPause*/) {
+function playPauseAudio() {
 	if(player[0].src){
 		if (player[0].paused) {
 			// Change the button to a pause button
-			changeButtonType(/*btnPlayPause,*/ 'pause');
+			changeButtonType('pause');
 			player[0].play();
 		} else {
 			// Change the button to a play button
-			changeButtonType(/*btnPlayPause,*/ 'play');
+			changeButtonType('play');
 			player[0].pause();
-			//player=null;
-			//btnPlayPause=null;
-			//progressBar=null;
 		}
 	}
 }
-function changeButtonType(/*btn,*/ value) {
-	
+function changeButtonType(value) {	
 	btnPlayPause.attr('src',"Images/Icons/"+value+".svg");
 }
-function updateProgressBar(/*player,progressBar*/) {
+function updateProgressBar() {
   // Work out how much of the media has played via the duration and currentTime parameters
   var percentage = Math.floor((1000 / player[0].duration) * player[0].currentTime);
   // Update the progress bar's value
