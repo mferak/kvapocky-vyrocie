@@ -167,24 +167,35 @@ header{
 #os{
 	display: block;
     float: left;
-    width: 42px;
+    width: 55px;
     position: fixed;
     right: 15%;
     top: 50px;
 	align-content:center;
+	opacity:0;
+}
+@media only screen and (max-width: 1700px) {
+    #os{
+        right: 2%;
+    }
 }
 #os span{
+	display: block;
 	font-size:24px; 
 	letter-spacing: 0.01em;
 	font-weight: normal;
 	text-decoration: none;
 	color:#e6e6e6;
+	text-align: center;
 	transition:color 0.2s;
+	
 }
 .rokyOs a{
+	display: block;
 	text-decoration:none;
 }
 .rokyOs{
+	display: block;
 	margin-bottom:10px;
 	
 }

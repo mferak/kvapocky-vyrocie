@@ -130,6 +130,15 @@ $(window).scroll(function() {
 			$("a[href='#obdobie_"+pred+"']").addClass('colour');
 		}
 	}
+	if($(document).scrollTop()<=obdobia[1]){
+		$("#os").css({
+			opacity: (($(document).scrollTop()/obdobia[1]))
+		});
+	}else{
+		$("#os").css({
+			opacity: 1
+		});
+	}
 });
 
 var player;
