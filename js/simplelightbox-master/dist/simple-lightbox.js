@@ -20,7 +20,7 @@ $.fn.simpleLightbox = function( options )
 		captionDelay: 0,
 		captionSelector: 'self',
 		captionType: 'attr',
-		captionsData: 'title',
+		captionsData: 'data-original-title',
 		captionPosition: 'bottom',
 		captionClass: '',
 		close: true,
@@ -252,7 +252,7 @@ $.fn.simpleLightbox = function( options )
 				} else if(options.captionType == 'text'){
 					captionText = cSel.html();
 				} else {
-					captionText = cSel.prop(options.captionsData);
+					captionText = cSel.attr(options.captionsData);
 				}
 
 				if(!options.loop) {
@@ -388,14 +388,14 @@ $.fn.simpleLightbox = function( options )
 			//zoom
 			curImg.on('mousemove',function(){
 				if(!zoom){
-					console.log("zoomin");
 					curImg.css({
-						'cursor':'-webkit-zoom-in'
+						//'cursor':'-webkit-zoom-in',
+						'cursor':'zoom-in'
 					});
 				}else if(zoom){
-					console.log("zoomout");
 					curImg.css({
-						'cursor':'-webkit-zoom-out'
+						//'cursor':'-webkit-zoom-out',
+						'cursor':'zoom-out'
 					});
 				}
 			});

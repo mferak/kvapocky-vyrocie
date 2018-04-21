@@ -45,6 +45,12 @@ i p {
 	padding-left: 1.5em;
     text-indent:-1.5em;
 }
+.noMargin p{
+	margin:0px;
+}
+.wider p{
+	max-width: 500px !important;
+}
 iframe{
 	z-index:-1;
 }
@@ -133,7 +139,8 @@ header{
 	top:0px;
     text-align: center;
     display: inline-block;
-	padding-top:3px;
+	/* padding-top:3px; */
+	padding-top: 1px;
     font-size: 16px;
     cursor: pointer;
 	font-size:14pt;
@@ -184,11 +191,11 @@ header{
 	font-size:24px; 
 	letter-spacing: 0.01em;
 	font-weight: normal;
+	line-height:27px;
 	text-decoration: none;
 	color:#e6e6e6;
 	text-align: center;
 	transition:color 0.2s;
-	
 }
 .rokyOs a{
 	display: block;
@@ -196,7 +203,7 @@ header{
 }
 .rokyOs{
 	display: block;
-	margin-bottom:10px;
+	margin-bottom:8px;
 	
 }
 .colour span{
@@ -297,7 +304,7 @@ header{
 	float:right;
 }
 .medial img{
-	margin:5px;
+	/* margin:5px; */
 }
 .noty{
 	display: grid;
@@ -363,8 +370,11 @@ header{
 }
 #progressText{
 	display: inline-block;
-	height:20px;
-	padding: 6px 20px 6px 2px;
+	/* pokial nieje border-box */
+	/* height:20px; */
+	/* padding: 6px 20px 6px 2px; */
+	height: 32px;
+    padding: 4px 20px 0px 2px;
 	border-radius: 0px 16px 16px 0px;
 	background-color:transparent;
 	position:relative;
@@ -417,6 +427,27 @@ progress::-moz-progress-value {
 	width:960px;
 	font-size: 30px;
 	font-weight:bold;
+}
+.plus-container{
+	display: inline-block;
+    position: relative;
+    overflow: hidden;
+    margin: 5px;
+}
+.alone{
+	display:inline-block;
+	text-decoration: none;
+}
+.plus{
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translatex(-50%) translatey(-50%);
+	opacity:0;
+	transition: opacity 0.2s;
+}
+.plus:hover{
+	opacity:1;
 }
 /*
 

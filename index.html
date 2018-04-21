@@ -4,14 +4,16 @@
 		<meta charset="UTF-8">
 		<title>Kvapôčky 50. výročie</title>
 		<link rel="icon" href="Images/Icons/favicon.png" type="image/png" sizes="32x32">
-		<link rel="stylesheet" href="css/style.css">
 		<link href='js/simplelightbox-master/dist/simplelightbox.css' rel='stylesheet' type='text/css'>
+		<link href='bootstrap-4.1.0-dist/css/bootstrap.css' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="fonts/Doko Sans webfontkit/dokosans.css">
+		<link rel="stylesheet" href="css/style.css">
 		
 		<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 		<script type="text/javascript" src="js/jquery-ui-1.12.1/jquery-ui.min.js"></script>
 		<script type="text/javascript" src="js/jquery.sticky-kit.min.js"></script>
 		<script type="text/javascript" src="js/lazyload.js"></script>
+		<script type="text/javascript" src="bootstrap-4.1.0-dist/js/bootstrap.bundle.js"></script>
 	</head>
 
 	<body>
@@ -23,7 +25,7 @@
 		</header>
 		<div id="buttons">
 			<!--<div id="pozadie"></div> !-->
-			<a id="main_text" class="buttonActive">text a&nbsp;multimédiá</a><a id="kronika">kronika</a>
+			<a id="main_text" class="buttonActive">Príbeh</a><a id="kronika">Poklady</a>
 		</div>
 		<div id="buttonsHidden">
 		</div>
@@ -32,12 +34,18 @@
 			<div class="rok">1968&thinsp;–&thinsp;1975</div>
 			<div class="articles">
 				<div class="medial">
-					<a href="Images/foto1974svadbaKAILINGOVCIdirigujeDRAHUSKAmarkusovaCC.jpg" class="alone" title="1. rad zľava: Martuška Bálintová, Natália Markušová, Danko Potúček, Janko Strelinger, Martinko Čičel, Zuzka Potúčková, Janka Rosová&NewLine;2. rad zľava: Blaho Číčel, Odeno Lupták, Ľubko Bálint, Braňo Hlatký, Dáša Bálintová, Hanka Luptáková, Juditka Matejová, Svetlanka Markušová, ???, Vierka Borošová, Paľko Ciesar &NewLine;Diriguje Drahuška Markušová"><img src="Images/thumb/foto1974svadbaKAILINGOVCIdirigujeDRAHUSKAmarkusovaCC.jpg" data-src="Images/foto1974svadbaKAILINGOVCIdirigujeDRAHUSKAmarkusovaCC.jpg" class="lazyload fillheight"/></a>
+					<div class="plus-container">
+						<a href="Images/foto1974svadbaKAILINGOVCIdirigujeDRAHUSKAmarkusovaCC.jpg" class="alone" data-toggle="tooltip" data-html="true" data-placement="bottom"
+						title="<b>Svadba Kailingovci</b>&NewLine;1. rad zľava: Martuška Bálintová, Natália Markušová, Danko Potúček, Janko Strelinger, Martinko Čičel, Zuzka Potúčková, Janka Rosová&NewLine;2. rad zľava: Blaho Číčel, Odeno Lupták, Ľubko Bálint, Braňo Hlatký, Dáša Bálintová, Hanka Luptáková, Juditka Matejová, Svetlanka Markušová, ???, Vierka Borošová, Paľko Ciesar &NewLine;Diriguje Drahuška Markušová">
+							<img class="plus fillwidth" src="Images/Icons/plus.png"/>
+							<img src="Images/thumb/foto1974svadbaKAILINGOVCIdirigujeDRAHUSKAmarkusovaCC.jpg" data-src="Images/foto1974svadbaKAILINGOVCIdirigujeDRAHUSKAmarkusovaCC.jpg" class="lazyload fillwidth"/>
+						</a>
+					</div>
 				</div>
 				<div class="info">
 					<h3>Dirigenti</h3>
 					<ul>
-						<li>Zakladateľka a&nbsp;dirigentka Kvapôčiek Milica Kailingová <span class="no-wrap">(jar 1968&thinsp;–&thinsp;jar 1971)</span></li>
+						<li>Zakladateľka a&nbsp;dirigentka Kvapôčiek Milica Machajdíková/Kailingová <span class="no-wrap">(jar 1968&thinsp;–&thinsp;jar 1971)</span></li>
 						<li>Jana Bubelková/Nagajová <span class="no-wrap">(jar 1971&thinsp;–&thinsp;jar 1974)</span></li>
 						<li>Drahuška Markušová <span class="no-wrap">(jeseň 1974&thinsp;–&thinsp;jar 1975)</span></li>
 					</ul>
@@ -85,20 +93,6 @@
 							</div>
 							
 						</div>
-						<div id="player" >
-								<div class="playPauseBtn">
-									<img class="controls" src="Images/Icons/play.svg" height="25" width="25"/>
-								</div>
-								<div id="progressText" >
-									On je Pán
-									<progress id='progress' min='0' max='1000' value='0'>
-										0% played
-									</progress>
-									<audio id="music" src="audio/audioOnJePánOnJeKráľKazetaAQP.mp3" >
-										Your browser does not support the audio format.
-									</audio>
-								</div>
-							</div>
 					</div>
 					<p>
 						Meno Kvapôčky sa stalo symbolom nadviazania na posolstvo a&nbsp;dedičstvo duchovnej práce s&nbsp;deťmi podľa príkladu sestier Kristíny a&nbsp;Márie Royových. Z&nbsp;príbehu tejto knižky si deti spolu so mnou a&nbsp;korepetítorkou Milenou Jurčovou/Uhlíkovou ujasnili základné princípy svojho pôsobenia v&nbsp;Kvapôčkach – „robiť na zemi dobre“ a&nbsp;„chváliť Boha piesňami“. Hneď na prvý nácvik dostali Kvapôčky do daru svoju hymnu – Vladimír Betina, otec troch Kvapôčiek, zložil na známu melódiu toto posolstvo:
@@ -122,16 +116,71 @@
 					<img class="round" src="Images/Icons/rozpravacBWjananagajova.jpg" />
 					<h3 class="middle">Rozpráva Jana Nagajová</h3>
 					</div>
+					
 					<h1>Repertoár</h1>
+					<div class="medial" style=" position: relative; top: 150px; left: -150px;">
+						<div id="player" >
+							<div class="playPauseBtn">
+								<img class="controls" src="Images/Icons/play.svg" height="25" width="25"/>
+							</div>
+							<div id="progressText" >
+								Pre Všetkých Prekrásnu Pieseň Mám
+								<progress id='progress' min='0' max='1000' value='0'>
+									0% played
+								</progress>
+								<audio id="music" src="audio/audioPreVšetkýchPrekrásnuPieseňMámKazetaAQP.mp3" >
+									Your browser does not support the audio format.
+								</audio>
+							</div>
+						</div>
+						<div id="player" style=" top: 20px; margin-left: 0;" >
+							<div class="playPauseBtn">
+								<img class="controls" src="Images/Icons/play.svg" height="25" width="25"/>
+							</div>
+							<div id="progressText" >
+								Ovečka sa Tvoja vinie
+								<progress id='progress' min='0' max='1000' value='0'>
+									0% played
+								</progress>
+								<audio id="music" src="audio/audioOveckaKazetaMamNadhernySen.mp3" >
+									Your browser does not support the audio format.
+								</audio>
+							</div>
+						</div>
+					</div>
 					<p>
-						Najskôr to bola hymna Kvapôčiek, potom piesne prekladané z&nbsp;češtiny, neskôr pribudla vlastná tvorba, preklady, originálne texty aj hudba, mnohé z&nbsp;týchto piesní boli v&nbsp;roku 1977 zaradené do Prídavku ku Kresťanskému spevníku (malý čierny detský spevník). Medzi prvé piesne, ktoré som  prekladala z&nbsp;češtiny, patrili napr. Verím, že Pán Boh je na nebi, Pre všetkých prekrásnu pieseň mám, Kuriatka spia; medzi novšie s&nbsp;originálnym textom aj hudbou: Aký krásny stvoril Pán Boh tento svet (Jana Nagajová/Ivan Valenta) , Keď sa ľudia opýtajú (Jana Nagajová/Ivan Valenta), Ovečka sa tvoja vinie (Mária Rafajová/Ivan Valenta)
+						Najskôr to bola hymna Kvapôčiek, potom piesne prekladané z&nbsp;češtiny, neskôr pribudla vlastná tvorba, preklady, originálne texty aj hudba, mnohé z&nbsp;týchto piesní boli v&nbsp;roku 1977 zaradené do Prídavku ku Kresťanskému spevníku (malý čierny detský spevník). Medzi prvé piesne, ktoré som  prekladala z&nbsp;češtiny, patrili napr. Verím, že Pán Boh je na nebi, <i>Pre všetkých prekrásnu pieseň mám</i>, Kuriatka spia; medzi novšie s&nbsp;originálnym textom aj hudbou: Aký krásny stvoril Pán Boh tento svet (Jana Nagajová/Ivan Valenta) , Keď sa ľudia opýtajú (Jana Nagajová/Ivan Valenta), <i>Ovečka sa tvoja vinie</i> (Mária Rafajová/Ivan Valenta)
 					</p>
 				</article>
 				<article>
 					<h1>Hudba a&nbsp;služba</h1>
 					<div class="medial">
-						<a href="Images/fotoQ1971_4.jpg" class="alone"><img src="Images/thumb/fotoQ1971_4.jpg" data-src="Images/fotoQ1971_4.jpg" class="lazyload fillheight" style="position:relative; top:-20px"/></a>
-						<a href="Images/fotoQ1972_7.jpg" class="alone"><img src="Images/thumb/fotoQ1972_7.jpg" data-src="Images/fotoQ1972_7.jpg" class="lazyload fillheight" style="position:relative; top:50px"/></a>
+						<div class="plus-container" style="position:relative; top:-20px">
+							<a href="Images/fotoQ1971_4.jpg" class="alone" data-toggle="tooltip" data-html="true" data-placement="bottom" title="<b>Kvapôčky v Leviciach 1971 (konferencia CB)</b>&NewLine;zľava: Dušan Číčel, Blaho Číčel, Martin Jurčo, za ním Daniel Jurčo">
+								<img class="plus fillheight" src="Images/Icons/plus.png"/>
+								<img src="Images/thumb/fotoQ1971_4.jpg" data-src="Images/fotoQ1971_4.jpg" class="lazyload fillheight" />
+							</a>
+						</div>
+						<div class="plus-container" style="position:relative; top:50px" >
+							<a href="Images/fotoQ1972_7.jpg" class="alone" data-toggle="tooltip" data-html="true" data-placement="bottom" title="<b>Kvapôčky na Těšínsku 1972</b>&NewLine;pri klavíri Zuzka Luptáková, dirigentka Jana Bubelková, vzadu zľava deti: Martin Jurčo, Dalma Czéfalvay, Svetlanka Číčelová, Janko Kucek">
+								<img class="plus fillheight" src="Images/Icons/plus.png"/>
+								<img src="Images/thumb/fotoQ1972_7.jpg" data-src="Images/fotoQ1972_7.jpg" class="lazyload fillheight" />
+							</a>
+						</div>
+						<div id="player" style=" top: 20px; margin-left: 0;" >
+							<div class="playPauseBtn">
+								<img class="controls" src="Images/Icons/play.svg" height="25" width="25"/>
+							</div>
+							<div id="progressText" >
+								Príbeh - Zájazd na Těšínsko (Jana Nagajová, dirigentka)
+								<progress id='progress' min='0' max='1000' value='0'>
+									0% played
+								</progress>
+								<audio id="music" src="audio/audioKvapockyZaciatkyJanaNagajovaZajazdNaTesinsko.wav" >
+									Your browser does not support the audio format.
+								</audio>
+							</div>
+						</div>
 					</div>
 					<p>
 						Snažili sme sa čím častejšie spievať na bohoslužbách na Cukrovej, do iných miest sme sa kvôli politickým obmedzeniam dostali zriedka, spievali sme v&nbsp;Leviciach na konferencii CB (ako Kvapôčky, aj spolu so Spevokolom mladých, ktorý tiež dirigovala Milica), na Starej Turej. Pred Vianocami sa začalo s&nbsp;tradíciou koledovania. Mladí ľudia, ktorí študovali v&nbsp;Bratislave, prinášali do svojich domácich zborov aj piesne Kvapôčiek, takže sa ich naučili aj ďalšie deti.
@@ -158,7 +207,7 @@
 					</p>
 				</article>
 				<article>
-					<h1>Ako povzbudiť deti v&nbsp;dobe nepriaznivej pre veriacich ľudí, aby sa nehanbili a&nbsp;nebáli? (1968-1975)</h1>
+					<h1>Ako povzbudiť deti v&nbsp;dobe nepriaznivej pre veriacich ľudí, aby sa nehanbili a&nbsp;nebáli?</h1>
 					<p>
 						V&nbsp;Kvapôčkach boli niektoré deti, ktorých otcovia alebo príbuzní boli v&nbsp;nedávnej minulosti väznení preto, že sa neskrývali do anonymity, ale boli aktívni v&nbsp;práci zboru. Mladí ľudia v&nbsp;zbore na Cukrovej boli povzbudzovaní k&nbsp;uvedomovaniu si Božej zvrchovanosti a&nbsp;svojej hodnoty v&nbsp;Božích očiach. Preto sme aj my povzbudzovali Kvapôčky k&nbsp;tomu, aby sa nebáli, ale napríklad aj svojím prístupom k&nbsp;povinnostiam v&nbsp;škole a&nbsp;svojím správaním sa k&nbsp;iným ľuďom dokazovali, že žijú správne, že Pán Boh je s&nbsp;nimi. Výhodou oproti dnešku bolo, že nemali toľko mimoškolských aktivít ako dnešné deti.
 					</p>
@@ -388,10 +437,65 @@
 				</a>
 			</div>
 		</div>
-		<div id="kronos" class="gallery">
+		<div id="kronos" >
 			<div class="rok" id="obdobie1">1968&thinsp;–&thinsp;1975</div>
-			
-			<div>
+			<div class="articles">
+				<h1 class="obdobia_uvody">Nosná pieseň</h1>
+				
+				<article class="wider">
+				<p>
+				Keď Mojžiš s ľudom Božím bola pieseň, ktorá ma od začiatku nadchla. Veľmi povzbudzovala nás aj tých, čo ju počúvali, aby sme sa nebáli. Veď tak ako v dávnych biblických časoch Pán Boh bol s Mojžišom, Dávidom, Danielom a ďalšími, dal im silu prekonať veľké nebezpečenstvá a ťažkosti, on je ten istý ešte dnes! Posolstvo tejto piesne sa nemení ani v dnešnej dobe, ktorá má zasa iné nebezpečenstvá.
+				</p>
+				<div class="medial">
+					<div class="noty">
+						<img class="lazyload" src="Images/thumb/notyKed Mojzis s ludom Bozim.jpg" data-src="Images/notyKed Mojzis s ludom Bozim.jpg"/>
+						<div id="player" >
+							<div class="playPauseBtn">
+								<img class="controls" src="Images/Icons/play.svg" height="25" width="25"/>
+							</div>
+							<div id="progressText" >
+								Keď Mojžiš s ľudom Božím (neni audio?)
+								<progress id='progress' min='0' max='1000' value='0'>
+									0% played
+								</progress>
+								<audio id="music" src="audio/audioKvapockyPadajuZNebaKazetaAQP.mp3" >
+									Your browser does not support the audio format.
+								</audio>
+							</div>
+						</div>	
+					</div>
+				</div>
+				<i class="noMargin">
+					
+					<p>Keď Mojžiš s ľudom Božím preč z Egypta sa bral.</p>
+					<p>bol faraon im v pätách a vpredu morský val.</p>
+					<p>Boh v mori cestu urobil a vlny rozdelil,</p>
+					<p>a ten Boh, čo za Mojžiša žil, sa dodnes nezmenil.</p>
+					<p>Ešte dnes, ešte dnes, ja to smiem skúsiť tiež, on je vždy ten istý Boh!</p>
+					<p>Ešte dnes, ešte dnes, ja to chcem vyznať tiež, on je vždy ten istý Boh!</p>
+					<br/>
+					<p>Keď malý, slabý Dávid pred Goliášom stál,</p>
+					<p>Mal obor ľudskú silu, no Dávid Božiu mal.</p>
+					<p>V tej moci Božej kameň vzal a obra porazil,</p>
+					<p>a ten Boh, čo za Dávida žil, sa dodnes nezmenil.</p>
+					<p>Ešte dnes, ešte dnes, ja to smiem skúsiť tiež, on je vždy ten istý Boh!</p>
+					<p>Ešte dnes, ešte dnes, ja to chcem vyznať tiež, on je vždy ten istý Boh!</p>
+					<br/>
+					<p>Keď v Babylone Daniel sa klaňať odmietal,</p>
+					<p>do jamy plnej levov kráľ uvrhnúť ho dal.</p>
+					<p>Boh ústa šelmám zatvoril a tak ho zachránil,</p>
+					<p>a ten Boh, čo za Daniela žil, sa dodnes nezmenil.</p>
+					<p>Ešte dnes, ešte dnes, ja to smiem skúsiť tiež, on je vždy ten istý Boh!</p>
+					<p>Ešte dnes, ešte dnes, ja to chcem vyznať tiež, on je vždy ten istý Boh!</p>
+					<br/>
+				</i>
+				<div class="noMargin">
+					<p>Hudba: Ivan Valenta</p>
+					<p>Text: Mária Rafajová, prel. Jana Nagajová</p>
+				</div>
+				</article>
+			</div>
+			<div class="gallery">
 			<a href="kronika/image001.jpg" rel="kronikaObdobie1" title="pieseň Skús byť ako Daniel vznikla už v roku 1970 + úvody s názvom “Biblické osobnosti Starého zákona”">PLACEHOLDER NA LIGHBOX ALBUM</a>
 			<a href="kronika/image002.jpg" rel="kronikaObdobie1" style="display:none;" title="ťažisková pieseň Keď Mojžiš s ľudom Božím - k úvodom “Skúsenosť s Bohom”"></a>
 			<a href="kronika/image003.jpg" rel="kronikaObdobie1" style="display:none;" title="stretnutie s rodičmi pred zmenou (odchod Milice a starších detí)"></a>
@@ -400,15 +504,7 @@
 			<a href="kronika/image006.jpg" rel="kronikaObdobie1" style="display:none;" title="momentky z Českého Tešína + za čo sme vďační"></a>
 			<a href="kronika/image007.jpg" rel="kronikaObdobie1" style="display:none;" title="praktická príprava na zájazd + ohlasy počúvajúcich a rodičov"></a>
 			</div>
-			<span class="hudge">hudge</span>
-			<span class="hudge">hudge</span>
-			<span class="hudge">hudge</span>
-			<span class="hudge">hudge</span>
-			<span class="hudge">hudge</span>
-			<span class="hudge">hudge</span>
-			<span class="hudge">hudge</span>
-			<span class="hudge">hudge</span>
-			<span class="hudge">hudge</span>
+			
 			<div class="rok" id="obdobie2">1977&thinsp;–&thinsp;1983</div>
 			<span class="hudge">hudge</span>
 			<span class="hudge">hudge</span>

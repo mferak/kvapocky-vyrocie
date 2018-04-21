@@ -46,50 +46,25 @@ $("#main_text").on( "click",function() {
 			color:"white"
 		},500,"swing");
 	}
-});
-
-window.scrollBy({ //smooth scroll
-  top: 100, 
-  left: 0, 
-  behavior: 'smooth' 
 });*/
-/* kaslat na ajax nejde to
-$("#buttons a").click(function(evt) {
-	evt.preventDefault();//pouzit return false ked nefunguje
-	var adresa = $(this).attr("href");
-	
-	//document.title = $(this).text();
-	//history.pushState("", "", adresa);
-	$("#content").fadeOut(300, function() {
-		$("#content").load(adresa+"#content",function(){
-			$(this).delay(100).fadeIn(function(){
-				console.log(adresa+"#content");
-			});
-		});		
-	});
+$(function () {
+	$('[data-toggle="tooltip"]').tooltip();
 });
-$(window).on("popstate", function() {
-	var pos = location.pathname.lastIndexOf("/");
-	var adresa = location.pathname.substr(pos+1);
-	console.log(adresa+"bleeeh");
-	//Pace.restart();
-	$("#content").fadeOut(300, function() {
-		$("#content").load(adresa+"#content").fadeIn(function(){
-			
-		});
-	});
-}); */
 lazyload();
 var lb = $('.alone').simpleLightbox({
 	nav: false,
 	loop: false,
 	enableKeyboard: false,
-	showCounter: false
+	showCounter: false,
+	captionType:'attr',
+	captionsData:"data-original-title"
 });
 var lb1 = $('.gallery a').simpleLightbox( {rel: 'kronikaObdobie1'});
 var lb2 = $('.gallery a').simpleLightbox( {rel: 'kronikaObdobie2'});
 
 $('#buttons').stick_in_parent({sticky_class:"sticky"});
+
+
 //$('#os').stick_in_parent();
 
 /*window.onscroll = function() {stick()};
@@ -222,7 +197,6 @@ $("#kronika").click(function(evt) {
 			druhySet=true;
 			for(var i=1;i<=9;i++){
 				obdobia[i]=$('#obdobie'+i).offset().top;
-				console.log(obdobia[i]);
 			}
 			autoScrolling=true;
 			$('html, body').animate({
@@ -239,7 +213,6 @@ $("#main_text").click(function(evt) {
 			druhySet=false;
 			for(var i=1;i<=9;i++){
 				obdobia[i]=$('#obdobie_'+i).offset().top;
-				console.log(obdobia[i]);
 			}
 			autoScrolling=true;
 			$('html, body').animate({
@@ -265,9 +238,7 @@ $('a[href*="#"]')
 			var novy=this.hash.replace("_","");
 			target=$(novy);
 		}
-		
 		target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-		
 		// Does a scroll target exist?
 		if (target.length) {
 			// Only prevent default if animation is actually gonna happen
