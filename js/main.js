@@ -47,8 +47,38 @@ $("#main_text").on( "click",function() {
 		},500,"swing");
 	}
 });*/
+jQuery.fn.onPositionChanged = function (trigger, millis) {
+    if (millis == null) millis = 100;
+    var o = $(this[0]); // our jquery object
+    if (o.length < 1) return o;
+
+    var lastPos = null;
+    var lastOff = null;
+    setInterval(function () {
+        if (o == null || o.length < 1) return o; // abort if element is non existend eny more
+        if (lastPos == null) lastPos = o.position();
+        if (lastOff == null) lastOff = o.offset();
+        var newPos = o.position();
+        var newOff = o.offset();
+        if (lastPos.top != newPos.top || lastPos.left != newPos.left) {
+            $(this).trigger('onPositionChanged', { lastPos: lastPos, newPos: newPos });
+            if (typeof (trigger) == "function") trigger(lastPos, newPos);
+            lastPos = o.position();
+        }
+        if (lastOff.top != newOff.top || lastOff.left != newOff.left) {
+            $(this).trigger('onOffsetChanged', { lastOff: lastOff, newOff: newOff});
+            if (typeof (trigger) == "function") trigger(lastOff, newOff);
+            lastOff= o.offset();
+        }
+    }, millis);
+
+    return o;
+};
 $(function () {
 	$('[data-toggle="tooltip"]').tooltip();
+});
+$('.collapser').click(function() {
+    $(this).prev().collapse('toggle');
 });
 lazyload();
 var lb = $('.alone').simpleLightbox({
@@ -59,8 +89,9 @@ var lb = $('.alone').simpleLightbox({
 	captionType:'attr',
 	captionsData:"data-original-title"
 });
-var lb1 = $('.gallery a').simpleLightbox( {rel: 'kronikaObdobie1'});
-var lb2 = $('.gallery a').simpleLightbox( {rel: 'kronikaObdobie2'});
+var lbk1 = $('.gallery a').simpleLightbox( {rel: 'kronikaObdobie1'});
+var lbf1 = $('.gallery a').simpleLightbox( {rel: 'fotkyObdobie1'});
+var lbk2 = $('.gallery a').simpleLightbox( {rel: 'kronikaObdobie2'});
 
 $('#buttons').stick_in_parent({sticky_class:"sticky"});
 
@@ -87,10 +118,21 @@ var obdobia=[];
 var autoScrolling=false;
 var druhySet=false;
 $("#obdobie_9").ready(function() {
+	prepocitaj();
+});
+function prepocitaj(){
+	console.log("volam sa prepocitaj");
 	for(var i=1;i<=9;i++){
 		obdobia[i]=$('#obdobie_'+i).offset().top;
+		$('#obdobie'+i).onPositionChanged(function(){prepoc();},500);
 	}
-});
+}
+function prepoc(){
+	console.log("volam sa prepoc");
+	for(var i=1;i<=9;i++){
+		obdobia[i]=$('#obdobie'+i).offset().top;
+	}
+}
 $(window).scroll(function() {
 	if (!autoScrolling){
 		var stran=$(document).scrollTop();
