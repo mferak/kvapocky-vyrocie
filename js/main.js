@@ -121,16 +121,17 @@ $("#obdobie_9").ready(function() {
 	prepocitaj();
 });
 function prepocitaj(){
-	console.log("volam sa prepocitaj");
 	for(var i=1;i<=9;i++){
 		obdobia[i]=$('#obdobie_'+i).offset().top;
-		$('#obdobie'+i).onPositionChanged(function(){prepoc();},500);
+		//$('#obdobie'+i).onPositionChanged(function(){prepoc();},100);
 	}
 }
 function prepoc(){
+	if(druhySet){
 	console.log("volam sa prepoc");
 	for(var i=1;i<=9;i++){
 		obdobia[i]=$('#obdobie'+i).offset().top;
+	}
 	}
 }
 $(window).scroll(function() {

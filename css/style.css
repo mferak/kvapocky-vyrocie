@@ -18,12 +18,12 @@ h1{
 	font-weight: normal;
 	color:black;
 }
-h2{
+h4{
 	font-size:24px;
 	font-weight: normal;
 	color:black;
 }
-h3{
+h2{
 	font-size: 22px; 
 	letter-spacing: 0.04em;
 	font-family:'doko_sansblack';
@@ -63,7 +63,7 @@ article{
 	display:block;
 	margin:50px 0px 50px 0px;
 }
-article h3 {
+article h2 {
 	display: inline;
 }
 article h1{
@@ -228,7 +228,7 @@ header{
 .obdobia_uvody{
 	max-width:750px;
 	margin-top:32px;
-	font-size:30px;
+	font-size:34px;
 }
 .rok{
 	margin-top:10px;
@@ -253,7 +253,7 @@ header{
 .articles{
 	max-width:960px;
 }
-.articles p,.articles ul,.articles li,.articles h3,.articles h1{
+.articles p,.articles ul,.articles li,.articles h2,.articles h1{
 	/* margin-left: 0px; */
     /* overflow:auto; */
     /* display:block; */
