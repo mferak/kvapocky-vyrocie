@@ -11,14 +11,16 @@
 		
 		<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 		<script type="text/javascript" src="js/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="js/jquery.enllax.js"></script>
 		<script type="text/javascript" src="js/jquery.sticky-kit.min.js"></script>
 		<script type="text/javascript" src="js/lazyload.js"></script>
 		<script type="text/javascript" src="bootstrap-4.1.0-dist/js/bootstrap.bundle.js"></script>
 	</head>
 
 	<body>
+	<img src="Images/Icons/Asset-6.svg" data-enllax-ratio="-0.6" data-enllax-type="foreground" style="position:absolute; top:1000px; left:800px; z-index:-2;" />
 		<header>
-			<img id="oblaky" src="Images/Icons/Oblaky.png"/>
+			<img id="oblaky" src="Images/Icons/Oblaky.png" data-enllax-ratio="-0.7" data-enllax-type="foreground"/>
 			<img id="logo" src="Images/Icons/logo.png"/>
 			<h1 id="uvod_nadpis">50 rokov detského speváckeho zboru Cirkvi bratskej v&nbsp;Bratislave</h1>
 			<h4 id="uvod">Kvapôčky vytvorili veľké more vzťahov, zážitkov, hudby a&nbsp;služby. A&nbsp;hoci sa veľa mení, niečo zostáva rovnaké: túžba spoznávať hudbu a&nbsp;Pána Boha, radovať sa z&nbsp;maličkostí, či zažiť dobrodružstvo.</h4>
@@ -76,7 +78,9 @@
 					</p>
 					<div class="medial">
 						<div class="noty">
-							<img class="lazyload" src="Images/thumb/notyKvapockyPadajuZNeba-1.jpg" data-src="Images/notyKvapockyPadajuZNeba-1.jpg"/>
+							<a target="_blank" href="pdf/notyKvapockyPadajuZNeba.pdf">
+								<img class="lazyload" src="Images/thumb/notyKvapockyPadajuZNeba-1.jpg" data-src="Images/notyKvapockyPadajuZNeba-1.jpg"/>
+							</a>
 							<div id="player" >
 								<div class="playPauseBtn">
 									<img class="controls" src="Images/Icons/play.svg" height="25" width="25"/>
@@ -476,8 +480,8 @@
 			</div>
 			<div class="rokyOs">
 				<a href="#obdobie_9">
-					<span class="rokHor">Mráč</span>
-					<span>iky</span>
+					<span class="rokHor">Mrá</span>
+					<span>čiky</span>
 				</a>
 			</div>
 		</div>
@@ -492,7 +496,9 @@
 				</p>
 				<div class="medial">
 					<div class="noty">
-						<img class="lazyload" src="Images/thumb/notyKed Mojzis s ludom Bozim.jpg" data-src="Images/notyKed Mojzis s ludom Bozim.jpg"/>
+						<a target="_blank" href="pdf/notyKed Mojzis s ludom Bozim.pdf">
+							<img class="lazyload" src="Images/thumb/notyKed Mojzis s ludom Bozim.jpg" data-src="Images/notyKed Mojzis s ludom Bozim.jpg"/>
+						</a>
 						<div id="player" >
 							<div class="playPauseBtn">
 								<img class="controls" src="Images/Icons/play.svg" height="25" width="25"/>
@@ -576,7 +582,7 @@
 				<article>
 					<div class="stred">
 						<h2>Juditka Matejová/Bánová:</h2>
-						<div id="summary">
+						<div id="summary" class="identita">
 							<p class="collapse" id="collapseSummary">
 								Myslím, že to bolo pre mňa určujúce v túžbe pomáhať druhým ľuďom, byť dobrá. Nasávala som všetky duchovné hodnoty, o ktorých ste nám rozprávali a o ktorých sme spievali. Raz sme cestovali s Dášou do Hrádku a šli sme dosť ďaleko od vlaku pešo, celú cestu sme si spievali kvapôčkovské a mládežnícke piesne, mali sme už 17.
 								<br/>
@@ -585,14 +591,14 @@
 							<a class="collapsed collapser" data-toggle="collapse" href="#" aria-expanded="false" aria-controls="collapseSummary"></a>
 						</div>
 						<h2>Jožko Hornáček:</h2>
-						<div id="summary">
+						<div id="summary" class="identita">
 							<p class="collapse" id="collapseSummary">
 								Milá Janka, pamätám si na Teba ešte z besiedky. Keď si sa neskôr vydala a odišla “s tým Nagajom do Bardejova”, nepáčilo sa mi to. Ja som bol taká neporiadna Kvapôčka, myslím, že som začínal v Kvapôčkach dvakrát. Teraz som si spomenul, že som sa raz prihlásil do Kvapôčiek, lebo som chcel ísť na zájazd... Motív ako remeň.
 							</p>
 							<a class="collapsed collapser" data-toggle="collapse" href="#" aria-expanded="false" aria-controls="collapseSummary"></a>
 						</div>
 						<h2>Paľko Ciesar:</h2>
-						<div id="summary">
+						<div id="summary" class="identita">
 							<p class="collapse" id="collapseSummary">
 								Ahoj, Janka, pre mňa naozaj ľahká úloha, lebo pri nej si naozaj nemusím nič vymýšľať, nasilu spomínať, tvoriť umelé vetné konštrukcie. Pretože - odniesol som si dosť. To, čo som si odniesol, si v sebe doživotne nosím a som rád, že na to nezabúdam. V prvom rade - láskavé prostredie. Do Kvapôčiek som sa nehlásil - do Kvapôčiek som bol prihlásený - a pociťoval som to ako veľkú krivdu. "Ukradli" mi totiž môj najcennejší čas - sobotné poobedie, kedy som mal vždy voľno, čo som si aj patrične užíval. A zrazu - nanútená aktivita - a to ešte spev, čo bolo pre chalana vychovaného chlapčenským prostredím, čosi nie celkom prijateľné. Ale - to prostredie prijatia, lásky a komunikácie ma vtiahlo k sebe a zmenilo moje myslenie aj názory na spev a spievanie.
 								<br/>

@@ -71,17 +71,18 @@ article h1{
 }
 header{
 	display: block;
-	max-width:960px;
+	max-width:1239px;
 	margin-left:auto;
 	margin-right:auto;
 }
 #oblaky{
+	z-index: -2;
 	display: block;
 	max-width:1239px;
 	position:absolute;
-	top:0;
-	left: 50%;
-	transform: translatex(-50%);
+	/* top:122px; */
+	/* left: 50%; */
+	/* transform: translatex(-50%); */
 }
 #logo{
 	display: block;
@@ -363,7 +364,8 @@ header{
 }
 .playPauseBtn{
 	height:32px;
-	background-color:#003bbb;
+	background-color:#002b88;
+	/* 003bbb */
 	width:32px;
 	border-radius: 16px 0px 0px 16px;
 	float:left;
@@ -371,7 +373,7 @@ header{
 .playPauseBtn .controls{
 	width:25px;
 	height:25px;
-	margin: 4px !important;
+	margin: 3.5px !important;
 }
 #progressText{
 	display: inline-block;
@@ -395,7 +397,7 @@ header{
 	
 }
 #progress{
-	color: #003bbb;
+	color: #002b88;
 	font-size: 12px;
 	width: 100%;
 	height: 32px;
@@ -411,19 +413,19 @@ progress{
 	width: 100%;
 }
 progress::-webkit-progress-value {
-	background: #003bbb;
+	background: #002b88;
 }
 progress::-webkit-progress-bar {
 	background: #0050ff;
 }
 progress::-moz-progress-value {
-  background-color: #003bbb;
+  background-color: #002b88;
 }
 ::-moz-progress-bar {
-	background-color: #003bbb;
+	background-color: #002b88;
 }
 ::-ms-progress-value{
-	background-color: #003bbb;
+	background-color: #002b88;
 }
 
 .hudge{
@@ -461,7 +463,9 @@ progress::-moz-progress-value {
     margin-right: auto;
 }
 #summary {
-  max-width:600px;
+	display: inline-block;
+    max-width: 600px;
+    margin-bottom: 10px;
 }
 #summary p{
 	max-width:600px;
@@ -484,6 +488,10 @@ progress::-moz-progress-value {
 
 #summary p.show + a:after {
     content: '- Čítaj menej';
+}
+.collapser{
+	float: right;
+    margin-top: -10px;
 }
 .album{
 	display:inline-block;
