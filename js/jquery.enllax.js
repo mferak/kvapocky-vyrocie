@@ -50,7 +50,7 @@
             else { dir = options.direction; }
             
             var bgY = Math.round(offset * ratio);
-            var transform = Math.round((offset - (winHeight / 2) + height) * ratio);
+            var transform = 0;//Math.round((offset - (winHeight / 2) + height) * ratio);
             
             if(type == 'background') {
                 if(dir == 'vertical') {
@@ -85,7 +85,7 @@
                 var scrolling = $(this).scrollTop();
                 
                 bgY = Math.round((offset - scrolling) * ratio);
-                transform = Math.round(((offset - (winHeight / 2) + height) - scrolling) * ratio);
+                transform = scrolling * ratio; //Math.round(((offset - (winHeight / 2) + height) - scrolling) * ratio);
                 
                 if(type == 'background') {
                     if(dir == 'vertical') {
