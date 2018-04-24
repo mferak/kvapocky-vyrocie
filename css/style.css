@@ -10,6 +10,7 @@ body{
     border-width: 0px;
 	width: 100%;
 	font-family:'doko_sans';
+	
 }
 h1{
 	font-size:28px; 
@@ -163,12 +164,14 @@ header{
 	max-width:960px;
 	margin-left:auto;
 	margin-right:auto;
+	overflow:hidden;
 }
 #kronos{
 	display: none;
 	max-width:960px;
 	margin-left:auto;
 	margin-right:auto;
+	overflow:hidden;
 }
 #kron{
 	display: block;

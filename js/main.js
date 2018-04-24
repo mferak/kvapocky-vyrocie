@@ -87,8 +87,38 @@ $('.identita').on('hidden.bs.collapse', function () {
 $('.identita').on('shown.bs.collapse', function () {
   prepoc();
 });
+$(".hashtag").css({
+	left:(770/1920)*$(window).width()
+});
+function shuffle(a) {
+    var j, x, i;
+    for (i = a.length - 1; i > 0; i--) {
+        j = Math.floor(Math.random() * (i + 1));
+        x = a[i];
+        a[i] = a[j];
+        a[j] = x;
+    }
+    return a;
+}
+function rozhod(){
+	var kvapka=$(".kvapla");
+	var kvapky= $.makeArray( kvapka );
+	shuffle(kvapky);
+	var min= $("#oblaky").offset().left;
+	var scrWidth= $(document).width();
+	var docHeight= $(document).height();
+	var y=500;
+	var rozdiel=((docHeight-(0.9*docHeight))/kvapky.length);
+	for(i=0;i<=kvapky.length-1;i++){
+		$(kvapky[i]).css({
+			left: Math.floor(Math.random()*(1300-min+1)+min),
+			top: Math.floor(Math.random()*((y+200)-(y-200)+1)+(y-200))
+		});
+		console.log (min);
+		y+=rozdiel;
+	}
+}
 
-$(window).enllax();
 
 lazyload();
 var lb = $('.alone').simpleLightbox({
@@ -127,8 +157,10 @@ var current=1;
 var obdobia=[];
 var autoScrolling=false;
 var druhySet=false;
-$("#obdobie_9").ready(function() {
+$(document).ready(function() {
 	prepocitaj();
+	rozhod();
+	$(window).enllax();
 });
 function prepocitaj(){
 	for(var i=1;i<=9;i++){
