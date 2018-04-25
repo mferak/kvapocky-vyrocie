@@ -74,6 +74,7 @@ $("#main_text").on( "click",function() {
 
     // return o;
 // };
+
 $(function () {
 	$('[data-toggle="tooltip"]').tooltip();
 });
@@ -89,6 +90,9 @@ $('.identita').on('shown.bs.collapse', function () {
 });
 $(".hashtag").css({
 	left:(770/1920)*$(window).width()
+});
+$("#oblaky").css({
+	left:($(window).width()/2)-($("#oblaky").width()/2)
 });
 function shuffle(a) {
     var j, x, i;

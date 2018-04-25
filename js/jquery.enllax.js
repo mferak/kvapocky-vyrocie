@@ -8,7 +8,7 @@
  **/
 
 (function($){
-    'use strict';
+    //'use strict';
     
     $.fn.enllax = function(opt){
         
