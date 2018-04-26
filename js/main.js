@@ -110,19 +110,18 @@ function rozhod(){
 	shuffle(kvapky);
 	var min= $("#oblaky").offset().left;
 	var scrWidth= $(document).width();
-	var scrHei=$(window).height()-500;
-	var docHeight= $(document).height()-500;
-	var y=500;
-	var rozdiel=((docHeight-(0.9*docHeight))/kvapky.length);
+	var scrHei=$(window).height();
+	var docHeight= $(document).height();
+	var diff = 1/kvapky.length;
 	for(i=0;i<=kvapky.length-1;i++){
 		var ratio=$(kvapky[i]).attr("data-enllax-ratio");
-		var maxPos = ratio*scrHei + (1-ratio)*docHeight
+		//var maxPos = ratio*scrHei + (1-ratio)*docHeight
+		var maxInitPos = ((ratio*scrHei) + (1-ratio)*docHeight)-800;
 		$(kvapky[i]).css({
 			left: Math.floor(Math.random()*(1300-min+1)+min),
-			top: 500+Math.floor(Math.random()*maxPos)//Math.floor(Math.random()*((y+2)-(y-2)+1)+(y-2))
+			top: 700+(diff*(i+Math.random())*maxInitPos)
 		});
-		console.log (min);
-		y+=rozdiel;
+		console.log (diff+" "+maxInitPos);
 	}
 }
 
