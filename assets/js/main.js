@@ -123,7 +123,7 @@ function rozhod(){
 }
 
 
-lazyload();
+//lazyload();
 var lb = $('.alone').simpleLightbox({
 	nav: false,
 	loop: false,
