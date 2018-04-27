@@ -303,12 +303,16 @@ header{
 	z-index:2;
 }
 .fillheight {
-    height: 352px; 
+    height: 352px !important; 
     width: auto;
 }
 .fillwidth {
     width: 505px;
-    height: auto;
+    height: auto !important;
+}
+.fillwidthsmall{
+	width: 350px;
+	height:auto;
 }
 .medial{
 	max-width:505px;
@@ -380,7 +384,7 @@ header{
 .playPauseBtn .controls{
 	width:25px;
 	height:25px;
-	margin: 3.5px !important;
+	margin: 4px !important;
 }
 #progressText{
 	display: inline-block;
