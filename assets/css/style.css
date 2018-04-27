@@ -10,6 +10,7 @@ body{
     border-width: 0px;
 	width: 100%;
 	font-family:'doko_sans';
+	font-weight: normal;
 	
 }
 h1{
@@ -76,7 +77,7 @@ header{
 	margin-left:auto;
 	margin-right:auto;
 }
-img{
+.gallery img{
 	vertical-align:unset;
 }
 #oblaky{

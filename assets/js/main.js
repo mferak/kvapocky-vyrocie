@@ -88,12 +88,10 @@ $('.identita').on('hidden.bs.collapse', function () {
 $('.identita').on('shown.bs.collapse', function () {
   prepoc();
 });
-$(".hashtag").css({
-	left:(770/1920)*$(window).width()
-});
-$("#oblaky").css({
-	left:($(window).width()/2)-($("#oblaky").width()/2)
-});
+// $(".hashtag").css({
+	// left:(770/1920)*$(window).width()
+// });
+
 function shuffle(a) {
     var j, x, i;
     for (i = a.length - 1; i > 0; i--) {
@@ -110,16 +108,17 @@ function rozhod(){
 	shuffle(kvapky);
 	var min= $("#oblaky").offset().left;
 	var scrWidth= $(document).width();
+	var scrHei=$(window).height();
 	var docHeight= $(document).height();
-	var y=500;
-	var rozdiel=((docHeight-(0.9*docHeight))/kvapky.length);
+	var diff = 1/kvapky.length;
 	for(i=0;i<=kvapky.length-1;i++){
+		var ratio=$(kvapky[i]).attr("data-enllax-ratio");
+		//var maxPos = ratio*scrHei + (1-ratio)*docHeight
+		var maxInitPos = ((ratio*scrHei) + (1-ratio)*docHeight)-800;
 		$(kvapky[i]).css({
-			left: Math.floor(Math.random()*(1300-min+1)+min),
-			top: Math.floor(Math.random()*((y+200)-(y-200)+1)+(y-200))
+			left: Math.floor(Math.random()*(1200-min+1)+min),
+			top: 700+(diff*(i+Math.random())*maxInitPos)
 		});
-		console.log (min);
-		y+=rozdiel;
 	}
 }
 
@@ -137,7 +136,7 @@ var lbk1 = $('.gallery a').simpleLightbox( {rel: 'kronikaObdobie1'});
 var lbf1 = $('.gallery a').simpleLightbox( {rel: 'fotkyObdobie1'});
 var lbk2 = $('.gallery a').simpleLightbox( {rel: 'kronikaObdobie2'});
 
-$('#buttons').stick_in_parent({sticky_class:"sticky"});
+
 
 
 //$('#os').stick_in_parent();
@@ -162,6 +161,17 @@ var obdobia=[];
 var autoScrolling=false;
 var druhySet=false;
 $(document).ready(function() {
+	$("#oblaky").css({
+		left:($(window).width()/2)-($("#oblaky").width()/2)
+	});
+	$('#buttons').stick_in_parent({
+		sticky_class:"sticky",
+		recalc_every:0
+	}).on("sticky_kit:stick", function(e) {
+    console.log("has stuck!", e.target);
+  }).on("sticky_kit:recalc", function(e) {
+    console.log("has unstuck!", e.target);
+	});
 	prepocitaj();
 	rozhod();
 	$(window).enllax();
@@ -173,7 +183,6 @@ function prepocitaj(){
 }
 function prepoc(){
 	if(druhySet){
-	console.log("volam sa prepoc");
 	for(var i=1;i<=9;i++){
 		obdobia[i]=$('#obdobie'+i).offset().top;
 	}
