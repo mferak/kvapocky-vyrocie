@@ -136,7 +136,9 @@ var lb = $('.alone').simpleLightbox({
 var lbk1 = $('.gallery a').simpleLightbox({rel: 'kronikaObdobie1'});
 var lbf1 = $('.gallery a').simpleLightbox({rel: 'fotkyObdobie1'});
 var lbk2 = $('.gallery a').simpleLightbox({rel: 'kronikaObdobie2'});
-var lbk2 = $('.gallery a').simpleLightbox({rel: 'fotkyObdobie2'});
+var lbf2 = $('.gallery a').simpleLightbox({rel: 'fotkyObdobie2'});
+var lbk3 = $('.gallery a').simpleLightbox({rel: 'kronikaObdobie3'});
+var lbf3 = $('.gallery a').simpleLightbox({rel: 'fotkyObdobie3'});
 
 
 //$('#os').stick_in_parent();
