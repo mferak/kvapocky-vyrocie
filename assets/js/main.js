@@ -139,7 +139,10 @@ var lbk2 = $('.gallery a').simpleLightbox({rel: 'kronikaObdobie2'});
 var lbf2 = $('.gallery a').simpleLightbox({rel: 'fotkyObdobie2'});
 var lbk3 = $('.gallery a').simpleLightbox({rel: 'kronikaObdobie3'});
 var lbf3 = $('.gallery a').simpleLightbox({rel: 'fotkyObdobie3'});
+var lbk4 = $('.gallery a').simpleLightbox({rel: 'kronikaObdobie4'});
+var lbf4 = $('.gallery a').simpleLightbox({rel: 'fotkyObdobie4'});
 
+var r4 = $('.gallery a').simpleLightbox({rel: 'rovnosata4'});
 
 //$('#os').stick_in_parent();
 

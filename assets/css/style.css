@@ -38,7 +38,7 @@ h2 {
     color: black;
 }
 
-ul {
+ul,ol {
     padding-left: 40px;
 }
 
@@ -338,8 +338,8 @@ header {
 }
 
 .gallery a img {
-    width: 960px;
-    padding: 10px;
+    /* width: 960px; */
+    /* padding: 10px; */
 }
 
 .sticky {
@@ -362,7 +362,7 @@ header {
 }
 
 .fillwidthsmall {
-    width: 350px;
+    width: 400px;
     height: auto;
 }
 
@@ -546,6 +546,12 @@ progress::-moz-progress-value {
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+}
+.stred p{
+    max-width: 600px;
+}
+.stred img{
+	vertical-align: middle;
 }
 
 #summary {
