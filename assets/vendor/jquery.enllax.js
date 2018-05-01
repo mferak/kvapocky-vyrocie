@@ -51,7 +51,7 @@
             
             var bgY = Math.round(offset * ratio);
             var transform = 0;//Math.round((offset - (winHeight / 2) + height) * ratio);
-            
+            var initial= $this.offset().top;
             if(type == 'background') {
                 if(dir == 'vertical') {
                     $this.css({
@@ -67,9 +67,10 @@
             else if(type == 'foreground') {
                 if(dir == 'vertical') {
                     $this.css({
-                        '-webkit-transform': 'translateY(' + transform + 'px)',
-                        '-moz-transform': 'translateY(' + transform + 'px)',
-                        'transform': 'translateY(' + transform + 'px)'
+                        // '-webkit-transform': 'translateY(' + transform + 'px)',
+                            // '-moz-transform': 'translateY(' + transform + 'px)',
+                            // 'transform': 'translateY(' + transform + 'px)'
+							'top': initial+transform
                     });
                 }
                 else if(dir == 'horizontal') {
@@ -86,7 +87,6 @@
                 
                 bgY = Math.round((offset - scrolling) * ratio);
                 transform = scrolling * ratio; //Math.round(((offset - (winHeight / 2) + height) - scrolling) * ratio);
-                
                 if(type == 'background') {
                     if(dir == 'vertical') {
                         $this.css({
@@ -102,16 +102,18 @@
                 else if((type == 'foreground') && (scrolling < docHeight)) {
                     if(dir == 'vertical') {
                         $this.css({
-                            '-webkit-transform': 'translateY(' + transform + 'px)',
-                            '-moz-transform': 'translateY(' + transform + 'px)',
-                            'transform': 'translateY(' + transform + 'px)'
+                            // '-webkit-transform': 'translateY(' + transform + 'px)',
+                            // '-moz-transform': 'translateY(' + transform + 'px)',
+                            // 'transform': 'translateY(' + transform + 'px)'
+							'top': initial+transform
                         });
                     }
                     else if(dir == 'horizontal') {
                         $this.css({
-                            '-webkit-transform': 'translateX(' + transform + 'px)',
-                            '-moz-transform': 'translateX(' + transform + 'px)',
-                            'transform': 'translateX(' + transform + 'px)'
+                            // '-webkit-transform': 'translateX(' + transform + 'px)',
+                            // '-moz-transform': 'translateX(' + transform + 'px)',
+                            // 'transform': 'translateX(' + transform + 'px)'
+							'top': initial+transform
                         });
                     }
                 }
