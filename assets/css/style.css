@@ -286,11 +286,14 @@ header {
 }
 
 .small {
-    font-size: 14px;
-    line-height: initial;
+    font-size: 14px !important;
+    line-height: initial !important;
     margin: 10px 0px 10px 0px;
 }
-
+.small p{
+	font-size: 14px !important;
+    line-height: initial !important;
+}
 .info {
     max-width: 450px;
     margin-top: 50px;
@@ -540,18 +543,25 @@ progress::-moz-progress-value {
 .plus:hover {
     opacity: 1;
 }
-
+.rovnosat{
+	max-width: 960px !important;
+}
 .stred {
     display: block;
-    max-width: 600px;
+    max-width: 605px;
     margin-left: auto;
     margin-right: auto;
 }
 .stred p{
-    max-width: 600px;
+    max-width: 605px;
+	margin-left: auto;
+    margin-right: auto;
 }
 .stred img{
 	vertical-align: middle;
+}
+.stred .plus-container{
+	margin:0;
 }
 
 #summary {

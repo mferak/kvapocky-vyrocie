@@ -141,8 +141,19 @@ var lbk3 = $('.gallery a').simpleLightbox({rel: 'kronikaObdobie3'});
 var lbf3 = $('.gallery a').simpleLightbox({rel: 'fotkyObdobie3'});
 var lbk4 = $('.gallery a').simpleLightbox({rel: 'kronikaObdobie4'});
 var lbf4 = $('.gallery a').simpleLightbox({rel: 'fotkyObdobie4'});
+var lbk5 = $('.gallery a').simpleLightbox({rel: 'kronikaObdobie5'});
+var lbf5 = $('.gallery a').simpleLightbox({rel: 'fotkyObdobie5'});
+var lbk6 = $('.gallery a').simpleLightbox({rel: 'kronikaObdobie6'});
+var lbf6 = $('.gallery a').simpleLightbox({rel: 'fotkyObdobie6'});
+var lbk7 = $('.gallery a').simpleLightbox({rel: 'kronikaObdobie7'});
+var lbf7 = $('.gallery a').simpleLightbox({rel: 'fotkyObdobie7'});
+var lbk8 = $('.gallery a').simpleLightbox({rel: 'kronikaObdobie8'});
+var lbf8 = $('.gallery a').simpleLightbox({rel: 'fotkyObdobie8'});
+var lbk9 = $('.gallery a').simpleLightbox({rel: 'kronikaObdobie9'});
+var lbf9 = $('.gallery a').simpleLightbox({rel: 'fotkyObdobie9'});
 
 var r4 = $('.gallery a').simpleLightbox({rel: 'rovnosata4'});
+var r5 = $('.gallery a').simpleLightbox({rel: 'rovnosata5'});
 
 //$('#os').stick_in_parent();
 
