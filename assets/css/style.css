@@ -366,7 +366,7 @@ header {
 
 .fillwidthsmall {
     width: 400px;
-    height: auto;
+    height: auto !important;
 }
 
 .medial {
