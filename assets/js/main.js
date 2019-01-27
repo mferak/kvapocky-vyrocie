@@ -157,6 +157,7 @@ var r5 = $('.gallery a').simpleLightbox({rel: 'rovnosata5'});
 var r6 = $('.gallery a').simpleLightbox({rel: 'rovnosata6'});
 var r7 = $('.gallery a').simpleLightbox({rel: 'rovnosata7'});
 var r8 = $('.gallery a').simpleLightbox({rel: 'rovnosata8'});
+var r9 = $('.gallery a').simpleLightbox({rel: 'rovnosata9'});
 
 //$('#os').stick_in_parent();
 
